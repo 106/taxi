@@ -1,0 +1,41 @@
+<h1>Listing taxis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <th>Default price</th>
+      <th>Price for km</th>
+      <th>Rank</th>
+      <th>Description</th>
+      <th>City</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @taxis.each do |taxi| %>
+      <tr>
+        <td><%= taxi.name %></td>
+        <td><%= taxi.phone %></td>
+        <td><%= taxi.website %></td>
+        <td><%= taxi.default_price %></td>
+        <td><%= taxi.price_for_km %></td>
+        <td><%= taxi.rank %></td>
+        <td><%= taxi.description %></td>
+        <td><%= taxi.city %></td>
+        <td><%= link_to 'Show', taxi %></td>
+        <td><%= link_to 'Edit', edit_taxi_path(taxi) %></td>
+        <td><%= link_to 'Destroy', taxi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Taxi', new_taxi_path %>

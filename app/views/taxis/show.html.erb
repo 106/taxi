@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @taxi.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @taxi.phone %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @taxi.website %>
+</p>
+
+<p>
+  <strong>Default price:</strong>
+  <%= @taxi.default_price %>
+</p>
+
+<p>
+  <strong>Price for km:</strong>
+  <%= @taxi.price_for_km %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @taxi.rank %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @taxi.description %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @taxi.city %>
+</p>
+
+<%= link_to 'Edit', edit_taxi_path(@taxi) %> |
+<%= link_to 'Back', taxis_path %>

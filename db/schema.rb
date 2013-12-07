@@ -11,20 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207161753) do
-
-  create_table "cities", force: true do |t|
-    t.string   "name"
-    t.integer  "taxi_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20131207171522) do
 
   create_table "feedbacks", force: true do |t|
     t.integer  "user_id"
     t.integer  "taxi_id"
     t.integer  "rank"
     t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taxis", force: true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "website"
+    t.float    "default_price"
+    t.float    "price_for_km"
+    t.float    "rank"
+    t.text     "description"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,8 +46,11 @@ ActiveRecord::Schema.define(version: 20131207161753) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone"
+    t.integer  "points"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

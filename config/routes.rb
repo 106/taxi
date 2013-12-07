@@ -1,9 +1,16 @@
 DnTaxi::Application.routes.draw do
+
+  resources :taxis
+
   resources :feedbacks
+  resources :users
 
   resources :cities
 
   devise_for :users
+
+  root 'taxis#index'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

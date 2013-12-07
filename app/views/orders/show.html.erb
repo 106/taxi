@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Taxi:</strong>
+  <%= @order.taxi_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @order.cost %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @order.distance %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @order.driver_id %>
+</p>
+
+<p>
+  <strong>User phone:</strong>
+  <%= @order.user_phone %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

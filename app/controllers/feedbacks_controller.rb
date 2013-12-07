@@ -18,17 +18,17 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(feedback_params)
     if @feedback.save
-      format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
+      redirect_to @feedback, notice: 'Feedback was successfully created.'
     else
-      format.html { render action: 'new' }
+      render action: 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      format.html { redirect_to @feedback, notice: 'Feedback was successfully updated.' }
+    if @feedback.update(feedback_params)
+      redirect_to @feedback, notice: 'Feedback was successfully updated.'
     else
-      format.html { render action: 'edit' }
+      render action: 'edit'
     end
   end
 

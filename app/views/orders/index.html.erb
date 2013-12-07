@@ -1,0 +1,37 @@
+<h1>Listing orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Taxi</th>
+      <th>User</th>
+      <th>Cost</th>
+      <th>Distance</th>
+      <th>Driver</th>
+      <th>User phone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.taxi_id %></td>
+        <td><%= order.user_id %></td>
+        <td><%= order.cost %></td>
+        <td><%= order.distance %></td>
+        <td><%= order.driver_id %></td>
+        <td><%= order.user_phone %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path %>

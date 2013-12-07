@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  taxi_id: 1
+  user_id: 1
+  cost: 1.5
+  distance: 1.5
+  driver_id: 1
+  user_phone: MyString
+
+two:
+  taxi_id: 1
+  user_id: 1
+  cost: 1.5
+  distance: 1.5
+  driver_id: 1
+  user_phone: MyString

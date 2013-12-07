@@ -1,5 +1,11 @@
 DnTaxi::Application.routes.draw do
 
+  resources :drivers
+
+  resources :orders
+
+  resources :places
+
   resources :taxis
 
   resources :feedbacks
@@ -9,7 +15,7 @@ DnTaxi::Application.routes.draw do
 
   devise_for :users
 
-  root 'taxis#index'
+  root 'orders#new'
 
 
 

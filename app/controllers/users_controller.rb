@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :use_only_your_profile
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @users = User.all
-  end
 
   def edit
   end
@@ -31,7 +29,11 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :phone)
+      params.require(:user).permit(:city, :email, :phone, :first_name, :last_name)
+    end
+
+    def use_only_your_profile
+      redirect_to root_path if current_user.id != params[:id].to_i
     end
 
 end

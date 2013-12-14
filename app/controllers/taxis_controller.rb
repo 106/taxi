@@ -26,18 +26,15 @@ class TaxisController < ApplicationController
 
   def update
     if @taxi.update(taxi_params)
-      format.html { redirect_to @taxi, notice: 'Taxi was successfully updated.' }
+      redirect_to @taxi, notice: 'Taxi was successfully updated.'
     else
-      format.html { render action: 'edit' }
+      render action: 'edit'
     end
   end
 
   def destroy
     @taxi.destroy
-    respond_to do |format|
-      format.html { redirect_to taxis_url }
-      format.json { head :no_content }
-    end
+    redirect_to taxis_url
   end
 
   private

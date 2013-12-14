@@ -1,23 +1,14 @@
 DnTaxi::Application.routes.draw do
 
+  devise_for :users
   resources :drivers
-
   resources :orders
-
   resources :places
-
   resources :taxis
-
   resources :feedbacks
   resources :users
-
   resources :cities
-
-  devise_for :users
-
   root 'orders#new'
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

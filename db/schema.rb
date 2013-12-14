@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207183340) do
+ActiveRecord::Schema.define(version: 20131214111330) do
 
   create_table "drivers", force: true do |t|
     t.string   "number"
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 20131207183340) do
     t.datetime "updated_at"
     t.string   "phone"
     t.integer  "points"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

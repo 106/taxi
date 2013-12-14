@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :use_only_your_profile
+  before_filter :use_only_your_profile, except: [:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def edit

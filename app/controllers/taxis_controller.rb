@@ -1,4 +1,6 @@
 class TaxisController < ApplicationController
+  before_filter :authenticate_taxi!, only: [:edit, :update, :destroy]
+  before_filter :use_only_your_profile, only: [:edit, :update, :destroy]
   before_action :set_taxi, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,20 +10,7 @@ class TaxisController < ApplicationController
   def show
   end
 
-  def new
-    @taxi = Taxi.new
-  end
-
   def edit
-  end
-
-  def create
-    @taxi = Taxi.new(taxi_params)
-    if @taxi.save
-      redirect_to @taxi, notice: 'Taxi was successfully created.'
-    else
-      render action: 'new'
-    end
   end
 
   def update
@@ -44,5 +33,9 @@ class TaxisController < ApplicationController
 
     def taxi_params
       params.require(:taxi).permit(:name, :phone, :website, :default_price, :price_for_km, :rank, :description, :city)
+    end
+
+    def use_only_your_profile
+      redirect_to root_path if current_taxi.id != params[:id].to_i
     end
 end

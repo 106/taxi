@@ -1,5 +1,6 @@
 DnTaxi::Application.routes.draw do
 
+  devise_for :taxis
   devise_for :users
   resources :drivers
   resources :orders

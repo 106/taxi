@@ -1,5 +1,6 @@
 <div class="place<%=order.places.count %>">
   <%= form_for place, remote: true do |f|%>
+    <%= token_tag(nil) %>
     <%= f.hidden_field :order_id, value: order.id %>
     <%= f.text_field :city %>
     <%= f.text_field :street %>

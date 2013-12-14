@@ -1,0 +1,12 @@
+<div class="place<%=order.places.count %>">
+  <%= form_for place, remote: true do |f|%>
+    <%= f.hidden_field :order_id, value: order.id %>
+    <%= f.text_field :city %>
+    <%= f.text_field :street %>
+    <%= f.text_field :house %>
+    <%= f.submit %>
+  <% end %>
+  <% if order.places.count > 1 %>
+    <a href="#" id='close_places_form'>close</a>
+  <% end %>
+</div>

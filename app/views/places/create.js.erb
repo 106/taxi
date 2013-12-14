@@ -1,0 +1,6 @@
+$('.place<%="#{@place.order.places.count-1}"%>').html("<%=e render 'place', :place => @place %>");
+$('.route').append("<%=e render 'new_place', :place => Place.new, :order => @place.order %>");
+
+$( "a#close_places_form" ).on( "click", function() {
+  $('.place<%="#{@place.order.places.count}"%>').html('');
+});

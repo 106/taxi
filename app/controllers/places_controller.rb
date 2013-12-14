@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
+  respond_to :js, :html
 
   def index
     @places = Place.all
@@ -16,12 +17,7 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @place = Place.new(place_params)
-    if @place.save
-      redirect_to @place, notice: 'Place was successfully created.'
-    else
-      render action: 'new'
-    end
+    @place = Place.create(place_params)    
   end
 
   def update

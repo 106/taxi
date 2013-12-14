@@ -1,8 +1,19 @@
 <h1>New order</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', orders_path %>
+<div class='route'>
+  <%= render 'places/new_place', :place => Place.new, :order => @order %>
+</div>
+<%= form_for(@order) do |f| %>
+  <% if user_signed_in? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% end %>  
+  <div class="field">
+    <%= f.label :user_phone %><br>
+    <%= f.phone_field :user_phone %>
+  </div>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <hr>
 

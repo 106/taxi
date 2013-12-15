@@ -41,7 +41,8 @@ class OrdersController < ApplicationController
   private
 
     def calculate_params
-      @order.get_distance            
+      @order.update_attributes distance: @order.get_distance  
+      @order.params_calculated
     end
 
     def set_order

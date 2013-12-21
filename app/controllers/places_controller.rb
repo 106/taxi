@@ -39,6 +39,6 @@ class PlacesController < ApplicationController
     end
 
     def place_params
-      params.require(:place).permit(:city, :street, :house, :order_id)
+      params.require(:place).permit(:city, :street, :house, :order_id, :porch)
     end
 end

@@ -2,9 +2,14 @@
   <%= form_for place, remote: true do |f|%>
     <%= token_tag(nil) %>
     <%= f.hidden_field :order_id, value: order.id %>
+    <%= f.label :city %>
     <%= f.text_field :city %>
+    <%= f.label :street %>
     <%= f.text_field :street %>
+    <%= f.label :house %>
     <%= f.text_field :house %>
+    <%= f.label :porch %>
+    <%= f.number_field :porch %>
     <%= f.submit %>
   <% end %>
   <% if order.places.count > 1 %>

@@ -31,8 +31,15 @@ class Order < ActiveRecord::Base
   end
 
   def get_distance
-    response = HTTParty.get(URI.encode('http://maps.googleapis.com/maps/api/directions/json?origin=Chicago,IL&destination=Los+Angeles,CA&waypoints=Joplin,MO|Oklahoma+City,OK&sensor=false'))
+    response = HTTParty.get(URI.encode(url_to_google))
     response["routes"].first['legs'].first["distance"]['value']  	
+  end
+
+  def url_to_google
+    host = 'http://maps.googleapis.com/maps/api/directions/json?'
+    start, *waypoints, finish = self.places
+    host << "origin=#{start.get_address}&destination=#{finish.get_address}&sensor=false"
+    
   end
   
 end

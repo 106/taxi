@@ -50,6 +50,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:taxi_id, :user_id, :state, :driver_id, :user_phone)
+      params.require(:order).permit(:taxi_id, :user_id, :state, :driver_id, :user_phone, :comment)
     end
 end

@@ -7,4 +7,9 @@ class Taxi < ActiveRecord::Base
 	has_many :feedbacks
 	has_many :orders
 	has_many :drivers
+
+	def cost_for_distance(distance)
+		costed_distance = distance/1000 - self.min_distance
+		costed_distance * price_for_km + default_price
+	end
 end

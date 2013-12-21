@@ -32,7 +32,7 @@ class TaxisController < ApplicationController
     end
 
     def taxi_params
-      params.require(:taxi).permit(:name, :phone, :website, :default_price, :price_for_km, :rank, :description, :city)
+      params.require(:taxi).permit(:name, :phone, :website, :default_price, :price_for_km, :rank, :description, :city, :min_distance)
     end
 
     def use_only_your_profile

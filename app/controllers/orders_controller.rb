@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @taxis = Taxi.where(:city => @order.places.first.city) if @order.calculated?
   end
 
   def new
@@ -41,7 +42,7 @@ class OrdersController < ApplicationController
   private
 
     def calculate_params
-      @order.update_attributes distance: @order.get_distance  
+      @order.update_attributes distance: @order.get_distance      
       @order.params_calculated
     end
 

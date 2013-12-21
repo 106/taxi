@@ -33,3 +33,28 @@
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
+
+<hr>
+
+<% @t%>
+
+<table>
+<tr>
+  <th>
+    Taxi
+  </th>
+  <th>
+    Cost
+  </th>
+</tr>
+<% @taxis.each do |taxi| %>
+<tr>
+<td>
+<%= taxi.name %>  
+</td>
+<td>
+  <%= taxi.cost_for_distance(@order.distance) %>
+</td>
+</tr>
+<% end %>
+</table>

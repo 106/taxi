@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216205012) do
+ActiveRecord::Schema.define(version: 20131221221800) do
 
   create_table "drivers", force: true do |t|
     t.string   "number"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20131216205012) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.float    "min_distance"
   end
 
   add_index "taxis", ["email"], name: "index_taxis_on_email", unique: true, using: :btree

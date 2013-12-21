@@ -39,7 +39,8 @@ class Order < ActiveRecord::Base
     host = 'http://maps.googleapis.com/maps/api/directions/json?'
     start, *waypoints, finish = self.places
     host << "origin=#{start.get_address}&destination=#{finish.get_address}"
-    host << "&waypoints=#{formated(waypoints)}" << '&sensor=false'
+    host << "&waypoints=#{formated(waypoints)}" if self.places.count > 2
+    host << '&sensor=false'
   end
 
   def formated points

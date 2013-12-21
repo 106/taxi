@@ -32,14 +32,18 @@ class Order < ActiveRecord::Base
 
   def get_distance
     response = HTTParty.get(URI.encode(url_to_google))
-    response["routes"].first['legs'].first["distance"]['value']  	
+    response["routes"].first['legs'].map {|l| l["distance"]['value']}.reduce(:+) 
   end
 
-  def url_to_google
+  def url_to_google #TODO Rewrite this in Ruby style
     host = 'http://maps.googleapis.com/maps/api/directions/json?'
     start, *waypoints, finish = self.places
-    host << "origin=#{start.get_address}&destination=#{finish.get_address}&sensor=false"
-    
+    host << "origin=#{start.get_address}&destination=#{finish.get_address}"
+    host << "&waypoints=#{formated(waypoints)}" << '&sensor=false'
+  end
+
+  def formated points
+    points.map {|p| p.get_address}.join('|')
   end
   
 end

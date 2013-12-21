@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
-# gem 'pg'
+# gem 'mysql2'
+gem 'pg'
 gem 'devise'
 
 # Use SCSS for stylesheets
@@ -17,6 +17,7 @@ gem 'state_machine'
 gem 'httparty'
 gem 'quiet_assets'
 gem 'russian'
+gem 'pry-rails', :group => :development
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'

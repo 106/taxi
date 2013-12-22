@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
   private
 
     def calculate_params
-      @order.update_attributes distance: @order.get_distance      
+      @order.update_attributes distance: (@order.get_distance/1000.0).round(2)     
       @order.params_calculated
     end
 

@@ -37,7 +37,6 @@ class Order < ActiveRecord::Base
 
   def get_distance
     response = HTTParty.get(URI.encode(url_to_google))
-    p response
     response["routes"].first['legs'].map {|l| l["distance"]['value']}.reduce(:+) 
   end
 

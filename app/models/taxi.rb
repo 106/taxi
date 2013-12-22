@@ -10,6 +10,7 @@ class Taxi < ActiveRecord::Base
 
 	def cost_for_distance(distance)
 		costed_distance = distance - self.min_distance
-		costed_distance * price_for_km + default_price
+		costed_distance = 0 if costed_distance < 0
+		(costed_distance * price_for_km + default_price)
 	end
 end

@@ -14,7 +14,8 @@ class Place < ActiveRecord::Base
 	private
 
 	def formated str
-		Russian.translit(str).split.join('+')
+		# Russian.translit(str).split.join('+')
+		str.split.join('+')
 	end
 
 	def set_cords

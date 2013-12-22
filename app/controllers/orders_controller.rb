@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update(order_params)
+      create_it if @order.calculated?
       calculate_params if @order.pending?
       redirect_to @order, notice: 'Order was successfully updated.'
     else
@@ -47,11 +48,15 @@ class OrdersController < ApplicationController
       @order.params_calculated
     end
 
+    def create_it
+      @order.taxi_was_choosen
+    end
+
     def set_order
       @order = Order.find(params[:id])
     end
 
     def order_params
-      params.require(:order).permit(:taxi_id, :user_id, :state, :driver_id, :user_phone, :comment)
+      params.require(:order).permit(:taxi_id, :user_id, :state, :cost, :driver_id, :user_phone, :comment)
     end
 end

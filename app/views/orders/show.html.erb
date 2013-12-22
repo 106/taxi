@@ -1,58 +1,18 @@
 <h4><%= @order.state %></h4>
-<p>
   <strong>Taxi:</strong>
   <%= @order.taxi_id %>
-</p>
-
-<p>
   <strong>User:</strong>
   <%= @order.user_id %>
-</p>
-
-<p>
   <strong>Cost:</strong>
   <%= @order.cost %>
-</p>
-
-<p>
   <strong>Distance:</strong>
   <%= @order.distance %>
-</p>
-
-<p>
   <strong>Driver:</strong>
   <%= @order.driver_id %>
-</p>
-
-<p>
   <strong>User phone:</strong>
   <%= @order.user_phone %>
-</p>
 
 <%= link_to 'Back', root_path %>
-
-<hr>
-
-<table>
-<tr>
-  <th>
-    Taxi
-  </th>
-  <th>
-    Cost
-  </th>
-</tr>
-<% @taxis.each do |taxi| %>
-<tr>
-<td>
-<%= taxi.name %>  
-</td>
-<td>
-  <%= taxi.cost_for_distance(@order.distance) %>
-</td>
-</tr>
-<% end %>
-</table>
 
 <%= image_tag @route %>
 
@@ -68,3 +28,38 @@
     </tr>
   <% end %>
 </table>
+
+<hr>
+<% if @order.calculated? %>
+<table>
+<tr>
+  <th>
+    Taxi
+  </th>
+  <th>
+    Cost
+  </th>
+  <th>    
+  </th>
+</tr>
+<% @taxis.each do |taxi| %>
+<tr>
+<td>
+<%= taxi.name %>  
+</td>
+<td>
+  <%= taxi.cost_for_distance(@order.distance).round 2 %>
+</td>
+<td>
+  <%= form_for @order do |f| %>
+    <%= f.hidden_field :taxi_id, :value => taxi.id %>
+    <%= f.hidden_field :cost, :value => taxi.cost_for_distance(@order.distance).round(2) %>
+    <%= f.submit 'OK' %>
+  <% end %>
+</td>
+</tr>
+<% end %>
+</table>
+
+<%  end %>
+

@@ -45,7 +45,7 @@
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.select :city, (City.all.map {|c| c.name}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

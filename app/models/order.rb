@@ -4,6 +4,11 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :places
 
+  COLORS = ['green', 'red', 'purple', 'yellow', 'blue', 'orange', 'black', 'white', 'brown']
+  LETTERS = ("A".."Z").to_a
+
+  validates :user_phone, presence: true, :on => :update
+
 	state_machine :state, initial: :pending do
 
 	  state :pending, :calculated, :created, :in_progress, :closed, :canceled
@@ -32,6 +37,7 @@ class Order < ActiveRecord::Base
 
   def get_distance
     response = HTTParty.get(URI.encode(url_to_google))
+    p response
     response["routes"].first['legs'].map {|l| l["distance"]['value']}.reduce(:+) 
   end
 
@@ -46,6 +52,16 @@ class Order < ActiveRecord::Base
   def formated points
     points.map {|p| p.get_address}.join('|')
   end
+
+  def route
+    link = "http://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap"
+    points = self.places.reduce('') {|res, place|
+      index = self.places.index(place)
+      res << "&markers=color:#{COLORS[index]}%7Clabel:#{LETTERS[index]}%7C#{place.latitude},#{place.longitude}"
+    }
+    link << points << "&sensor=false"
+  end
+
   
 end
 

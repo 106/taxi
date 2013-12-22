@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131221221800) do
+ActiveRecord::Schema.define(version: 20131222153817) do
 
   create_table "drivers", force: true do |t|
     t.string   "number"
@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(version: 20131221221800) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "porch"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "region",     default: "Donetsk"
   end
 
   create_table "taxis", force: true do |t|

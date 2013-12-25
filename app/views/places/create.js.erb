@@ -1,6 +1,10 @@
-$('.place<%="#{@place.order.places.count-1}"%>').html("<%=e render 'place', :place => @place %>");
-$('.route').append("<%=e render 'new_place', :place => Place.new, :order => @place.order %>");
+<% if @place.errors.present? %>
+  $('.route').append('<%= @place.errors.full_messages.join(' ')%>')
+<% else %>
+	$('.place<%="#{@place.order.places.count-1}"%>').html("<%=e render 'place', :place => @place %>");
+	$('.route').append("<%=e render 'new_place', :place => Place.new, :order => @place.order %>");
 
-$( "a#close_places_form" ).on( "click", function() {
-  $('.place<%="#{@place.order.places.count}"%>').html('');
-});
+	$( "a#close_places_form" ).on( "click", function() {
+	  $('.place<%="#{@place.order.places.count}"%>').html('');
+	});
+<% end %>

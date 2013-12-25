@@ -17,7 +17,12 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @place = Place.create(place_params)    
+    @place = Place.new(place_params)
+    if @place.save
+      @place
+    else
+      @place.errors
+    end
   end
 
   def update

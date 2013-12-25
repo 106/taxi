@@ -1,0 +1,29 @@
+<div class="hero-unit description">
+  <h2 class="text-center">Добро пожаловать на taxidn.herokuapp.com</h2>
+  <p>Это сервис, позволяющий жителям Донецкой области заказывать такси через интернет.</p>
+  <p>С нами сотрудничают более 20 служб такси из разных городов. И их количество постоянно растет.</p>
+  <p>Мы заботимся о наших постоянных клиентах и устраиваем для них акции, начисляем бонусы и дарим бесплатные поездки.</p>
+  <br>
+  <div class="text-center">
+    <%= link_to 'Заказать такси', new_order_path, class: 'btn btn-danger btn-order'%>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span4 reason" align="center">
+  	<div class="icon_wrapper">
+  	  <%= image_tag 'phone.png', class: 'img-circle main_icon' %>
+    </div>    
+  	<p>Больше нет необходимости искать номер телефона службы такси и пытаться дозвониться.</p></div>
+
+  	<div class="span4 reason" align="center">
+  	<div class="icon_wrapper">
+  	  <%= image_tag 'car.png', class: 'img-circle main_icon' %>
+    </div>
+  	<p>Вы можете выбрать службу такси в зависимости от цены за поездку и ваших личных предпочтений.</p></div>
+
+  	<div class="span4 reason" align="center">
+  	<div class="icon_wrapper">
+  	  <%= image_tag 'route.png', class: 'img-circle main_icon' %>
+    </div>
+  	<p>Вы знаете все данные о вашей поездке: расстояние, стоимость, данные о водителе.</p></div>
+</div>

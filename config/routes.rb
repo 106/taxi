@@ -9,7 +9,8 @@ DnTaxi::Application.routes.draw do
   resources :feedbacks
   resources :users
   resources :cities
-  root 'orders#new'
+  get "static_pages/main"
+  root 'static_pages#main'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,3 +11,72 @@
  *= require_self
  *= require_tree .
  */
+
+html, body {
+  font-family: 'Exo 2', sans-serif !important;
+  background-image:url('/assets/background.jpg');
+  background-repeat: no-repeat;
+  height: 100%;
+  -moz-background-size: 100%; /* Firefox 3.6+ */
+  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100%; /* Opera 9.6+ */
+  background-size: 100%; /* Современные браузеры */
+}
+
+.container {
+ 	max-width: 980px;
+}
+
+.content {      	
+     	
+}
+
+.hero-unit {
+	opacity: .8;
+	min-height: 250px;
+	margin-top: 5% !important;
+	margin-bottom: 10% !important;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+
+.reason p{
+	font-size: 12pt;
+	background-color: #eeeeee;
+	opacity: 0.8;
+	border-radius: 7px;
+	color: #a8211a !important;  
+}
+
+.description p, a{
+	line-height: 14pt !important;
+	font-size: 14pt !important;
+}
+
+.description a {
+	color: white !important;
+}
+
+.description a:hover {
+	font-weight: bold;
+}
+
+img.main_icon {	
+	color:white;
+	height: 60px !important;
+	width: 60px !important;
+	margin-top: 10px;
+}
+
+.icon_wrapper {
+	background-color: #a8211a;
+	border-radius: 500px;
+	height: 80px;
+	width:80px;
+	margin-bottom: 15px;
+}
+
+.btn-order {
+	line-height: 24pt !important;
+}
+    

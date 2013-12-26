@@ -1,0 +1,35 @@
+<div class='well'>
+  <table class='table'>
+  	<tr>
+  		<th>id</th>
+  		<th>distance</th>
+  		<th>cost</th>
+  		<th>created_at</th>
+  		<th>state</th>  		
+  		<th>set_driver</th>
+  	</tr>
+    <% @booked_orders.each do |booked_order| %>
+    	<tr>
+    		<td><%= booked_order.id %></td>
+				<td><%= booked_order.distance %></td>
+				<td><%= booked_order.cost %></td>
+				<td><%= booked_order.created_at %></td>
+				<td><%= booked_order.state %></td>	
+				<td>
+					<% if booked_order.driver_id.present? %>
+					  <%= booked_order.driver_id%>
+					<% else %>
+						<%= form_for booked_order, :url=>"/taxi_panel/booked_orders/#{booked_order.id}", remote: true do |f| %>
+							<%= f.select :driver_id, (current_taxi.drivers.map {|d| d.id}) %>
+							<%= f.submit %>
+						<% end %>
+					<% end %>
+
+				</td>
+    	</tr>
+    <% end %>
+  </table>
+</div>
+
+
+<%= current_taxi.id%>

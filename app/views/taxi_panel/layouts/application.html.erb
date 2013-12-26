@@ -12,12 +12,12 @@
     <div class="navbar-inner">
       <div class="container">
         <ul class="nav pull-right" id="loginbar"> 
-          <% if user_signed_in? %>
-            <li><%= link_to 'Мой профиль', current_user %></li>
-            <li><%= link_to 'Выход', destroy_user_session_path %></li>
+          <% if taxi_signed_in? %>
+            <li><%= link_to 'Мой профиль', current_taxi %></li>
+            <li><%= link_to 'Выход', destroy_taxi_session_path %></li>
           <% else %>
-            <li><%= link_to "Вход", new_user_session_path %></li>
-            <li><%= link_to "Регистрация", new_user_registration_path %></li>
+            <li><%= link_to "Вход", new_taxi_session_path %></li>
+            <li><%= link_to "Регистрация", new_taxi_registration_path %></li>
           <% end %>
         </ul>              
       </div>

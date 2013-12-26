@@ -1,0 +1,1 @@
+TaxiPanelApplicationController = TaxiPanel::ApplicationController

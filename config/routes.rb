@@ -2,7 +2,6 @@ DnTaxi::Application.routes.draw do
 
   devise_for :taxis
   devise_for :users
-  resources :drivers
   resources :orders
   resources :places
   resources :taxis
@@ -10,6 +9,12 @@ DnTaxi::Application.routes.draw do
   resources :users
   resources :cities
   get "static_pages/main"
+
+  scope 'taxi_panel', :module => :taxi_panel do
+    get "/" => redirect("/taxi_panel/booked_orders")
+    resources :booked_orders
+    resources :drivers
+  end
   root 'static_pages#main'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,7 +5,6 @@ gem 'rails', '4.0.2'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
-# gem 'pg'
 gem 'devise'
 
 # Use SCSS for stylesheets

@@ -24,16 +24,10 @@
   </div>
   <div class='brand_stripe'>
     <br>
-    <h1 class='brand'><span>My</span>taxi.dn.ua</h1>
+    <h1 class='brand'><span><%= link_to 'My', root_path, class: 'red_link'%></span><%= link_to 'taxi.dn.ua', root_path, class: 'white_link'%></h1>
 </div>
 
   <div class="container content">
-    <%if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <%if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
     <%= yield %>
   </div>
 

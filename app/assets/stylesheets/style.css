@@ -61,7 +61,20 @@ input.btn-success:hover {
 	width: 88%;
 	height: 80px;
 	resize: none;
+	font-weight: 100;
+	font-size: 0.85em;
 }
+
+.white_link{
+	color: white !important;
+	text-decoration: none !important;
+}
+
+.red_link{
+	color: #b84762 !important;
+	text-decoration: none !important;
+}
+
 
 .order {
   margin-right: 35px;
@@ -83,15 +96,16 @@ input.btn-success:hover {
 
 .brand_stripe {
 	height: 12%;
+	min-height: 100px;
 	margin-top: -1px;
 	margin-bottom: 20px;
 	background: linear-gradient(to left, #3a4c5b, #0066aa );
 }
 
 h1.brand {
+	padding-top: 15px;
 	color: white;
-	margin-top: 25px;
-	margin-left: 180px;
+	margin-left: 15%;
 	font-size: 35pt;
 	font-family: 'Poiret One', cursive;
 }

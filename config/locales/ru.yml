@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    attributes:
+      place:
+        city: 'Город:'
+        street: 'Улица:'
+        house: 'Дом:'
+        porch: 'Подъезд:'
+      order:
+        user_phone: "Телефон:"
+        comment: "Комментарий:"

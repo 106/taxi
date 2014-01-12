@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20131222221332) do
   end
 
   create_table "places", force: true do |t|
-    t.string   "city"
+    t.string   "city",       default: "Donetsk"
     t.string   "street"
     t.string   "house"
     t.integer  "order_id"

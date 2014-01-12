@@ -1,16 +1,37 @@
 <div class="place<%=order.places.count %>">
-  <%= form_for place, remote: true do |f|%>
+  <%= form_for place, html: {class: 'form-horizontal'}, remote: true do |f|%>
     <%= token_tag(nil) %>
     <%= f.hidden_field :order_id, value: order.id %>
-    <%= f.label :city %>
-    <%= f.select :city, (City.all.map {|c| c.name}) %>
-    <%= f.label :street %>
-    <%= f.text_field :street %>
-    <%= f.label :house %>
-    <%= f.text_field :house %>
-    <%= f.label :porch %>
-    <%= f.number_field :porch %>
-    <%= f.submit %>
+    <div class="control-group">
+      <%= f.label :city, class: "control-label text-left" %>
+      <div class="controls">
+        <%= f.select :city, (City.all.map {|c| c.name}) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :street, class: "control-label text-left" %>
+      <div class="controls">
+        <%= f.text_field :street %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :house, class: "control-label text-left" %>
+      <div class="controls">
+        <%= f.text_field :house %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :porch, class: "control-label text-left" %>
+      <div class="controls">
+        <%= f.text_field :porch %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit 'Добавить на маршрут', class: 'btn btn-success' %>
+      </div>
+    </div>
+
   <% end %>
   <% if order.places.count > 1 %>
     <a href="#" id='close_places_form'>close</a>

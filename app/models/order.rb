@@ -12,7 +12,7 @@ class Order < ActiveRecord::Base
 	state_machine :state, initial: :pending do
 
 	  state :pending, :calculated, :created, :in_progress, :closed, :canceled
-	  
+
 	  event :params_calculated do
 	    transition pending: :calculated
 	  end
@@ -37,7 +37,7 @@ class Order < ActiveRecord::Base
 
   def get_distance
     response = HTTParty.get(URI.encode(url_to_google))
-    response["routes"].first['legs'].map {|l| l["distance"]['value']}.reduce(:+) 
+    response["routes"].first['legs'].map {|l| l["distance"]['value']}.reduce(:+)
   end
 
   def url_to_google #TODO Rewrite this in Ruby style
@@ -61,6 +61,6 @@ class Order < ActiveRecord::Base
     link << points << "&sensor=false"
   end
 
-  
+
 end
 

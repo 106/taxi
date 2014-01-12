@@ -6,31 +6,36 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Exo+2:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="navbar navbar-static-top navbar-inverse">
+  <div class="navbar navbar-static-top">
     <div class="navbar-inner">
-      <div class="container">
-        <ul class="nav pull-right" id="loginbar"> 
+        <ul class="nav pull-right" id="loginbar">
           <% if user_signed_in? %>
-            <li><%= link_to 'Мой профиль', current_user %></li>
-            <li><%= link_to 'Выход', destroy_user_session_path %></li>
+            <li class='nav_item'><%= link_to 'Мой профиль', current_user %></li>
+            <li class='nav_item'><%= link_to 'Выход', destroy_user_session_path %></li>
           <% else %>
-            <li><%= link_to "Вход", new_user_session_path %></li>
-            <li><%= link_to "Регистрация", new_user_registration_path %></li>
+            <li class='nav_item'><%= link_to "Вход", new_user_session_path %></li>
+            <li class='nav_item'><%= link_to "Регистрация", new_user_registration_path %></li>
           <% end %>
-        </ul>              
-      </div>
+        </ul>
     </div>
   </div>
-  <div class="container content">      
-    <%if notice %>  
+  <div class='brand_stripe'>
+    <br>
+    <h1 class='brand'><span>My</span>taxi.dn.ua</h1>
+</div>
+
+  <div class="container content">
+    <%if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
     <%if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <%= yield %>      
+    <%= yield %>
   </div>
+
 </body>
 </html>

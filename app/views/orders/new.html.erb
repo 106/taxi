@@ -1,20 +1,60 @@
-<h1>New order</h1>
-<div class='route'>
-  <%= render 'places/new_place', :place => Place.new, :order => @order %>
-</div>
-<%= form_for(@order) do |f| %>
-  <% if user_signed_in? %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-  <% end %>  
-  <div class="field">
-    <%= f.label :user_phone %><br>
-    <%= f.phone_field :user_phone %>
-  </div> 
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </div> 
-  <div class="actions">
-    <%= f.submit %>
+    <h1>Новый заказ</h1>
+
+<div class="row-fluid">
+
+
+  <div class="span4 route">
+  <br>
+    <%= render 'places/new_place', :place => Place.new, :order => @order %>
   </div>
-<% end %>
+
+  <div class="span2"></div>
+
+  <div class="span6">
+
+<div class="well">
+    <h3>Ваш маршрут</h3>
+
+      <table class="table table-striped table-bordered">
+        <tr>
+          <td><strong>Откуда</strong></td>
+          <td>Арема 73 2 подъезд</td>
+        </tr>
+        <tr>
+          <td rowspan='2'><strong>Через</strong></td>
+          <td>Шевченко 40 1 подъезд</td>
+        </tr>
+        <tr>
+          <td>Шевченко 40 1 подъезд</td>
+        </tr>
+        <tr>
+          <td><strong>Куда</strong></td>
+          <td>Ильича 12 1 подъезд</td>
+        </tr>
+      </table>
+      </div>
+
+    <%= form_for(@order, :html => {:class => "form-horizontal"}) do |f| %>
+      <% if user_signed_in? %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+
+
+      <div class="control-group">
+        <%= f.label :comment, class: "control-label order" %>
+        <div class="controls">
+          <%= f.text_area :comment, class: 'order_comment'  %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :user_phone, class: "control-label order" %>
+        <div class="controls input-prepend phone">
+          <span class="add-on">+38</span>
+          <%= f.text_field :user_phone, class: 'span8' %>
+        </div>
+        <%= f.submit class:'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

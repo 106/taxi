@@ -1,0 +1,114 @@
+
+body {
+	margin: 0;
+	padding: 0;
+  background: linear-gradient(to top, #FFFFFF, #C8BED1 );
+}
+
+.navbar-inner{
+	background: linear-gradient(to left, #3a4c5b, #0066aa );
+}
+
+li.nav_item a {
+	font-size: 1.2em;
+	font-weight: 100 !important;
+	color: #0088cc !important;
+	text-shadow: none !important;
+}
+
+li.nav_item a:hover{
+	color: #fff !important;
+}
+
+.container {
+	min-width: 980px;
+	width: 50%;
+}
+
+.control-label {
+	text-align: left !important;
+	max-width: 70px !important;
+}
+
+.controls {
+	margin-left: 70px !important;
+}
+
+input.btn-success {
+	letter-spacing: 1px !important;
+	font-weight: 100;
+	width: 220px !important;
+	color: white !important;
+	background: #0088cc !important;
+}
+
+input.btn-success:hover {
+	color: white !important;
+	background: #1098dc !important;
+}
+
+.input-prepend {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.phone {
+	max-height: 35px !important;
+	font-weight: bold;
+}
+
+.order_comment {
+	width: 88%;
+	height: 80px;
+	resize: none;
+}
+
+.order {
+  margin-right: 35px;
+}
+
+.btn-primary {
+	width: 170px !important;
+	height: 35px;
+	background: #b84762 !important;
+}
+
+.btn-primary:hover {
+	background: #1098dc !important;
+}
+
+.well {
+	padding-top: 0;
+}
+
+.brand_stripe {
+	height: 12%;
+	margin-top: -1px;
+	margin-bottom: 20px;
+	background: linear-gradient(to left, #3a4c5b, #0066aa );
+}
+
+h1.brand {
+	color: white;
+	margin-top: 25px;
+	margin-left: 180px;
+	font-size: 35pt;
+	font-family: 'Poiret One', cursive;
+}
+
+h1.brand span {
+	color: #b84762;
+}
+
+.btn {
+	letter-spacing: 1px !important;
+	background: #0088cc;
+	color: #fff;
+	font-weight: 100 !important;
+	text-shadow: none;
+}
+
+.btn:hover {
+	background: #1098dc;
+	color:#fff;
+}

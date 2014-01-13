@@ -12,6 +12,7 @@
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
         <ul class="nav pull-right" id="loginbar">
+          <li class='nav_item'><%= link_to 'Новый заказ', root_path %></li>
           <% if user_signed_in? %>
             <li class='nav_item'><%= link_to 'Мой профиль', current_user %></li>
             <li class='nav_item'><%= link_to 'Выход', destroy_user_session_path %></li>

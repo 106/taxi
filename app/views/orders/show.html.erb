@@ -10,6 +10,13 @@
   </div>
 <% end %>
 
+<% if @order.created? %>
+<div class="well">
+  <h4>Благодарим Вас за заказ!</h4>
+  <p>Ожидайте звонка оператора. Если вам не перезвонят в течение 15 минут &ndash; попробуйте повторить заказ.</p>
+</div>
+<% end %>
+
 <div class="row-fluid">
   <div class="span7">
     <% if @order.calculated? %>
@@ -88,18 +95,11 @@
           <%= @order.comment %>
         </td>
       </table>
-      <% if @order.calculated? %>
-        <%= link_to 'Изменить', edit_order_path(@order), class:'btn pull-right'%>
-        <br>
-      <% end %>
-      <% if @order.created? %>
-      <% end %>
+      <ul>
+        <li>Перевозка животных</li>
+        <li>Машина с кондиционером</li>
+      </ul>
     </div>
   </div>
 </div>
-<% if @order.created? %>
-<div class="well">
-  <h4>Благодарим Вас за заказ!</h4>
-  <p>Ожидайте звонка оператора. Если вам не перезвонят в течение 15 минут &ndash; попробуйте повторить заказ.</p>
-</div>
-<% end %>
+

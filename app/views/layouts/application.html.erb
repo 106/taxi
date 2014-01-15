@@ -9,7 +9,7 @@
   <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="navbar navbar-static-top">
+  <!-- <div class="navbar navbar-static-top">
     <div class="navbar-inner">
         <ul class="nav pull-right" id="loginbar">
           <li class='nav_item'><%= link_to 'Новый заказ', root_path %></li>
@@ -22,8 +22,11 @@
           <% end %>
         </ul>
     </div>
-  </div>
+  </div> -->
   <div class='brand_stripe'>
+    <ul class="pull-right" id="loginbar">
+      <li class='nav_item'><%= link_to 'Новый заказ', root_path %></li>
+    </ul>
     <br>
     <h1 class='brand'><span><%= link_to 'My', root_path, class: 'red_link'%></span><%= link_to 'taxi.dn.ua', root_path, class: 'white_link'%></h1>
 </div>

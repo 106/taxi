@@ -1,3 +1,4 @@
+<br>
 <div class="place<%=order.places.count %>">
   <%= form_for place, html: {class: 'form-horizontal'}, remote: true do |f|%>
     <%= token_tag(nil) %>
@@ -27,13 +28,8 @@
       </div>
     </div>
     <div class="control-group">
-      <div class="controls">
-        <%= f.submit 'Добавить на маршрут', class: 'btn btn-success' %>
-      </div>
+          <%= f.submit 'Добавить на маршрут', class: 'btn btn-success' %>
+          <a class='btn btn-success' id='close_places_form' href="#">По счетчику</a>
     </div>
-
-  <% end %>
-  <% if order.places.count > 1 %>
-    <a href="#" id='close_places_form'>close</a>
   <% end %>
 </div>

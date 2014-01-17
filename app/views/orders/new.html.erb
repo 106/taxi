@@ -7,22 +7,6 @@
     <div class="route">
     <%= render 'places/new_place', :place => Place.new, :order => @order %>
     </div>
-    <h4>Дополнительные услуги</h4>
-    <label class="checkbox">
-      <input type="checkbox" value="">Машина представительского класса</input>
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" value="">Машина с кондиционером</input>
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" value="">Перевозка животных</input>
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" value="">Минивен</input>
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" value="">Поездка за город</input>
-    </label>
   </div>
 
 
@@ -36,6 +20,27 @@
         <%= f.hidden_field :user_id, value: current_user.id %>
       <% end %>
 
+      <%= f.hidden_field :by_count, value: false%>
+      <h4>Дополнительные услуги</h4>
+      <label class="checkbox">
+        <%= f.check_box :vip %>Машина представительского класса
+      </label>
+      <label class="checkbox">
+        <%= f.check_box :air_conditioning %>Машина с кондиционером
+      </label>
+      <label class="checkbox">
+        <%= f.check_box :animals %>Перевозка животных
+      </label>
+      <label class="checkbox">
+        <%= f.check_box :minivan %>Минивен
+      </label>
+      <label class="checkbox">
+        <%= f.check_box :out_of_town %>Поездка за город
+      </label>
+      <label class="checkbox">
+        <%= f.check_box :check %>Чек
+      </label>
+      <br>
 
       <div class="control-group">
         <%= f.label :comment, class: "control-label order" %>

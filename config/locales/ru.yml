@@ -9,3 +9,10 @@ ru:
       order:
         user_phone: "Телефон:"
         comment: "Комментарий:"
+  order:
+    air_conditioning: 'Кондиционер'
+    check: 'Чек'
+    vip: 'Машина представительского класса'
+    animals: 'Перевозка животных'
+    out_of_town: 'Поездка за город'
+    minivan: 'Минивен'

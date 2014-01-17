@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222221332) do
+ActiveRecord::Schema.define(version: 20140117065515) do
 
   create_table "cities", force: true do |t|
     t.string "name"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 20131222221332) do
     t.datetime "updated_at"
     t.string   "state"
     t.text     "comment"
+    t.boolean  "by_count"
+    t.boolean  "animals"
+    t.boolean  "air_conditioning"
+    t.boolean  "vip"
+    t.boolean  "minivan"
+    t.boolean  "out_of_town"
+    t.boolean  "check"
   end
 
   create_table "places", force: true do |t|

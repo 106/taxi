@@ -52,19 +52,19 @@
       <table class="table">
         <tr>
           <td>Служба такси:</td>
-          <td><strong>Пегас</strong></td>
+          <td><strong><%= @order.taxi.name%></strong></td>
         </tr>
         <tr>
           <td>Номер телефона:</td>
-          <td>+38-050-907-65-56, +38-067-222-13-13</td>
+          <td><%= @order.taxi.phone%></td>
         </tr>
         <tr>
           <td>Расстояние:</td>
-          <td>4 км.</td>
+          <td><%= @order.distance %> км</td>
         </tr>
         <tr>
           <td>Стоимость поездки:</td>
-          <td>18грн.</td>
+          <td><%= @order.cost %> грн.</td>
         </tr>
       </table>
     <% end %>
@@ -96,8 +96,12 @@
         </td>
       </table>
       <ul>
-        <li>Перевозка животных</li>
-        <li>Машина с кондиционером</li>
+        <% if @order.vip %><li><%= t("order.vip") %></li><% end%>
+        <% if @order.air_conditioning %><li><%= t("order.air_conditioning") %></li><% end%>
+        <% if @order.animals %><li><%= t("order.animals") %></li><% end%>
+        <% if @order.minivan %><li><%= t("order.minivan") %></li><% end%>
+        <% if @order.out_of_town %><li><%= t("order.out_of_town") %></li><% end%>
+        <% if @order.check %><li><%= t("order.check") %></li><% end%>
       </ul>
     </div>
   </div>

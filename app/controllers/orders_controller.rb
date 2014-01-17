@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.save
-      redirect_to @order, notice: 'Order was successfully created.'
+      redirect_to @order
     else
       render action: 'new'
     end
@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
       calculate_params if @order.pending?
       redirect_to @order, notice: 'Order was successfully updated.'
     else
-      render action: 'edit'
+      render action: 'new'
     end
   end
 
@@ -44,7 +44,7 @@ class OrdersController < ApplicationController
   private
 
     def calculate_params
-      @order.update_attributes distance: (@order.get_distance/1000.0).round(2)     
+      @order.update_attributes distance: (@order.get_distance/1000.0).round(2)
       @order.params_calculated
     end
 
@@ -57,6 +57,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:taxi_id, :user_id, :state, :cost, :driver_id, :user_phone, :comment)
+      params.require(:order).permit(:animals, :air_conditioning, :vip, :minivan, :out_of_town, :taxi_id, :user_id, :state, :cost, :driver_id, :user_phone, :comment, :by_count, :check)
     end
 end

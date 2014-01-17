@@ -106,14 +106,33 @@ a.btn-success:hover {
 }
 
 .brand_stripe {
+	position: relative;
 	height: 12%;
 	min-height: 100px;
 	margin-top: -1px;
 	margin-bottom: 20px;
 	background: linear-gradient(to left, #3a4c5b, #0066aa );
+
+}
+
+.brand_stripe:after {
+content: '';
+display: block;
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+	background-image: image-url("patt.png");
+	background-position-y: -30px;
+background-size: 1%;
+z-index: 0;
+
 }
 
 h1.brand {
+	position: relative;
+z-index: 1000;
 	padding-top: 15px;
 	color: white;
 	margin-left: 15%;

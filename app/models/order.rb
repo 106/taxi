@@ -11,15 +11,11 @@ class Order < ActiveRecord::Base
 
 	state_machine :state, initial: :pending do
 
-	  state :pending, :calculated, :created, :in_progress, :closed, :canceled, :by_count
+	  state :pending, :calculated, :created, :in_progress, :closed, :canceled
 
 	  event :params_calculated do
 	    transition pending: :calculated
 	  end
-
-    event :mode_by_count_was_choosen do
-      transition pending: :by_count
-    end
 
 	  event :taxi_was_choosen do
       transition calculated: :created

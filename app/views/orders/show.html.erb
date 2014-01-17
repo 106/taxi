@@ -1,5 +1,5 @@
 
-<% if @order.calculated? %>
+<% if @order.calculated?%>
   <div style='background: linear-gradient(to right, #3a4c5b, #0066aa ); color: white; width: 100%;'>
     <h2 style='margin-left: 25px; font-weight:100;'>Ваш маршрут: <span style='color: #b84762; font-weight: 100;'><%= @order.distance %></span> км</h2>
   </div>
@@ -8,9 +8,6 @@
   <div style='background: linear-gradient(to right, #3a4c5b, #0066aa ); color: white; width: 100%;'>
     <h2 style='margin-left: 25px; font-weight:100;'>Ваш заказ принят!</h2>
   </div>
-<% end %>
-
-<% if @order.created? %>
 <div class="well">
   <h4>Благодарим Вас за заказ!</h4>
   <p>Ожидайте звонка оператора. Если вам не перезвонят в течение 15 минут &ndash; попробуйте повторить заказ.</p>
@@ -20,90 +17,15 @@
 <div class="row-fluid">
   <div class="span7">
     <% if @order.calculated? %>
-      <div class="well">
-        <h3>Выберите службу такси:</h3>
-        <table class='table' style='vertical-align:middle'>
-          <% @taxis.each do |taxi| %>
-            <tr>
-              <td style='vertical-align:middle'>
-                <h4><%= taxi.name %></h4>
-              </td>
-              <td style='vertical-align:middle'>
-                <%= "+38#{taxi.phone}"%>
-              </td>
-              <td style='vertical-align:middle'>
-                <%= taxi.cost_for_distance(@order.distance).round 2 %> грн.
-              </td>
-              <td style='vertical-align:baseline'>
-                <%= form_for @order do |f| %>
-                  <%= f.hidden_field :taxi_id, :value => taxi.id %>
-                  <%= f.hidden_field :cost, :value => taxi.cost_for_distance(@order.distance).round(2) %>
-                  <%= f.submit 'Заказать', class: 'btn', style: 'margin-top: 10px;' %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-      <div>
-        <%= image_tag @route, class: "img-polaroid" %>
-      </div>
-    <% else %>
-      <table class="table">
-        <tr>
-          <td>Служба такси:</td>
-          <td><strong><%= @order.taxi.name%></strong></td>
-        </tr>
-        <tr>
-          <td>Номер телефона:</td>
-          <td><%= @order.taxi.phone%></td>
-        </tr>
-        <tr>
-          <td>Расстояние:</td>
-          <td><%= @order.distance %> км</td>
-        </tr>
-        <tr>
-          <td>Стоимость поездки:</td>
-          <td><%= @order.cost %> грн.</td>
-        </tr>
-      </table>
+      <%= render 'calculated_order' %>
+    <% end %>
+
+    <% if @order.created?  %>
+      <%= render 'created_order' %>
     <% end %>
   </div>
-
-  <div class="span1"></div>
-
-  <div class="span4">
-    <div class="well">
-      <% if @order.calculated? %>
-        <h3>Заказ</h3>
-      <% else %>
-        <br>
-      <% end %>
-      <table class='table table-striped table-bordered'>
-        <tr>
-          <td colspan='2'>
-            Тел. <b><%= "+38#{@order.user_phone}"%></b>
-          </td>
-        </tr>
-        <% @order.places.each_with_index do |place, index| %>
-          <tr>
-            <td ><%= ('A'..'Z').to_a[index] %></td>
-            <td><%= "#{place.city},  #{place.street}, #{place.house}"%></td>
-          </tr>
-        <% end %>
-        <td colspan='2'>
-          <%= @order.comment %>
-        </td>
-      </table>
-      <ul>
-        <% if @order.vip %><li><%= t("order.vip") %></li><% end%>
-        <% if @order.air_conditioning %><li><%= t("order.air_conditioning") %></li><% end%>
-        <% if @order.animals %><li><%= t("order.animals") %></li><% end%>
-        <% if @order.minivan %><li><%= t("order.minivan") %></li><% end%>
-        <% if @order.out_of_town %><li><%= t("order.out_of_town") %></li><% end%>
-        <% if @order.check %><li><%= t("order.check") %></li><% end%>
-      </ul>
-    </div>
+  <div class="span5">
+    <%= render 'order_info' %>
   </div>
 </div>
 

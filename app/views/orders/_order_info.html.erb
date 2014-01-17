@@ -1,0 +1,31 @@
+<div class="well">
+  <% if @order.calculated? %>
+    <h3>Заказ</h3>
+  <% else %>
+    <br>
+  <% end %>
+  <table class='table table-striped table-bordered'>
+    <tr>
+      <td colspan='2'>
+        Тел. <b><%= "+38#{@order.user_phone}"%></b>
+      </td>
+    </tr>
+    <% @order.places.each_with_index do |place, index| %>
+      <tr>
+        <td ><%= ('A'..'Z').to_a[index] %></td>
+        <td><%= "#{place.city},  #{place.street}, #{place.house}"%></td>
+      </tr>
+    <% end %>
+    <td colspan='2'>
+      <%= @order.comment %>
+    </td>
+  </table>
+  <ul>
+    <% if @order.vip %><li><%= t("order.vip") %></li><% end%>
+    <% if @order.air_conditioning %><li><%= t("order.air_conditioning") %></li><% end%>
+    <% if @order.animals %><li><%= t("order.animals") %></li><% end%>
+    <% if @order.minivan %><li><%= t("order.minivan") %></li><% end%>
+    <% if @order.out_of_town %><li><%= t("order.out_of_town") %></li><% end%>
+    <% if @order.check %><li><%= t("order.check") %></li><% end%>
+  </ul>
+</div>

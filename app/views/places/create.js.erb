@@ -1,5 +1,5 @@
 <% if @place.errors.present? %>
-  $('.route').append('<%= @place.errors.full_messages.join(' ')%>')
+  $('.errors').html('<%= @place.errors.full_messages%>') //какой-то человеческий вид нужен...
 <% else %>
 	$('.place<%="#{@place.order.places.count-1}"%>').hide();
 	$('#your_route').html("<%=e render 'route', :places => @place.order.places %>")

@@ -1,0 +1,28 @@
+<div class="well">
+  <h3>Выберите службу такси:</h3>
+  <table class='table' style='vertical-align:middle'>
+    <% @taxis.each do |taxi| %>
+      <tr>
+        <td style='vertical-align:middle'>
+          <h4><%= taxi.name %></h4>
+        </td>
+        <td style='vertical-align:middle'>
+          <%= "+38#{taxi.phone}"%>
+        </td>
+        <td style='vertical-align:middle'>
+          <% if @order.by_count %> от <% end %> <%= taxi.cost_for_distance(@order.distance).round 2 %> грн.
+        </td>
+        <td style='vertical-align:baseline'>
+          <%= form_for @order do |f| %>
+            <%= f.hidden_field :taxi_id, :value => taxi.id %>
+            <%= f.hidden_field :cost, :value => taxi.cost_for_distance(@order.distance).round(2) %>
+            <%= f.submit 'Заказать', class: 'btn', style: 'margin-top: 10px;' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div>
+  <%= image_tag @route, class: "img-polaroid" %>
+</div>

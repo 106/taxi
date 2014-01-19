@@ -23,9 +23,9 @@
     <hr>
 
     <div class="row-fluid">
-      <%= f.submit 'Составить маршрут', class: 'btn btn-primary', id: "add_to_route" %>
+      <%= f.submit 'Составить маршрут', class: 'btn btn-primary', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
       <% if order.places.count < 1 %>
-        <a class='btn btn-primary' id='close_places_form' href="#" alt='По городу (не знаю куда)'>По счетчику</a>
+        <a class='btn btn-primary' id='close_places_form' href="#" title='По городу (не знаю куда)'>По счетчику</a>
       <% end %>
     </div>
   <% end %>

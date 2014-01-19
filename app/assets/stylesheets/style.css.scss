@@ -105,3 +105,9 @@ a.brand {
 	background-color: #eee;
 	border-top: 1px solid #ccc;
 }
+
+textarea {
+	&:focus {
+		font-weight: bold;
+	}
+}

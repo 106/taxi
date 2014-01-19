@@ -4,6 +4,10 @@ body {
   background: linear-gradient(to top, #FFFFFF, #C8BED1) no-repeat;
 }
 
+.btn {
+	margin-bottom: 10px !important;
+}
+
 .submit {
 	background: #B84762 !important;
 
@@ -70,7 +74,6 @@ li.nav_item a:hover{
 .brand-stripe-wrapper {
 	margin-bottom: 20px;
 	background: linear-gradient(to left, #3a4c5b, #0066aa);
-	box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
 
 	.brand_stripe {
 		min-height: 100px;
@@ -82,10 +85,11 @@ li.nav_item a:hover{
 
 a.brand {
 	display: inline-block;
-	margin-top: .7em;
+	// margin-top: .4em;
 	text-decoration: none;
 	color: white;
 	font-size: 3.6em;
+	line-height: 1.8em;
 	font-family: 'Poiret One', cursive;
 	font-weight: bold;
 
@@ -124,4 +128,12 @@ textarea {
 
 .field_with_errors {
 	display: inline;
+}
+
+.input-prepend {
+	margin-bottom: 10px !important;
+}
+
+@media (max-width: 724) {
+
 }

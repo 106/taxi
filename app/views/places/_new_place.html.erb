@@ -20,10 +20,8 @@
       <%= f.text_field :porch, class: 'span5' %>
     </div><br>
     <div class="row-fluid">
-      <div class="span4">
+      <div class="span12">
         <%= f.submit 'Составить маршрут', class: 'btn btn-primary', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
-      </div>
-      <div class="span4">
         <% if order.places.count < 1 %>
           <input type="button" class='btn btn-primary' id='close_places_form' title='По городу (не знаю куда)' value="По счетчику">
         <% end %>

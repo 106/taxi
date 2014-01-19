@@ -33,9 +33,7 @@
       </label>
       <label class="checkbox">
         <%= f.check_box :check %>Чек
-      </label>
-
-      <hr>
+      </label><br>
 
       <div class="row-fluid">
         <div class="span3">
@@ -50,18 +48,11 @@
         <div class="span3">
           <%= f.label :user_phone, class: "order" %>
         </div>
-        <div class="span9">
-          <div class="input-prepend phone">
-            <span class="add-on">+38</span>
-            <%= f.text_field :user_phone %>
-          </div>
+        <div class="input-prepend phone span5">
+          <span class="add-on">+38</span>
+          <%= f.text_field :user_phone, class: 'input-small' %>
         </div>
-      </div>
-
-      <hr>
-
-      <div class="control-group">
-        <%= f.submit 'Заказать', class: "btn btn-danger submit" %>
+        <%= f.submit 'Заказать', class: "btn btn-danger submit span3 pull-right" %>
       </div>
 
     <% end %>

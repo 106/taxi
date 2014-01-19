@@ -6,8 +6,10 @@ body {
 
 .submit {
 	background: #B84762 !important;
-	padding-left: 40px;
-	padding-right: 40px;
+
+	&:hover {
+		background: #06a !important;
+	}
 }
 
 .page-heading {
@@ -110,4 +112,16 @@ textarea {
 	&:focus {
 		font-weight: bold;
 	}
+}
+
+.btn-primary {
+	background: #06a !important;
+}
+
+.img-map {
+	box-sizing: border-box;
+}
+
+.field_with_errors {
+	display: inline;
 }

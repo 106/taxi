@@ -8,4 +8,4 @@ $("#close_places_form").on "click", (event) ->
   event.preventDefault()
   event.stopPropagation()
   $("#add_to_route").trigger('click')
-  $("input#order_by_count").val "true"
+  $("#order_by_count").val "true"

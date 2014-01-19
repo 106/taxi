@@ -16,13 +16,16 @@
           <%= form_for @order do |f| %>
             <%= f.hidden_field :taxi_id, :value => taxi.id %>
             <%= f.hidden_field :cost, :value => taxi.cost_for_distance(@order.distance).round(2) %>
-            <%= f.submit 'Заказать', class: 'btn', style: 'margin-top: 10px;' %>
+            <%= f.submit 'Заказать', class: 'btn btn-primary', style: 'margin-top: 10px;' %>
           <% end %>
         </td>
       </tr>
     <% end %>
   </table>
 </div>
-<div>
-  <%= image_tag @route, class: "img-polaroid" %>
+
+<div class="row-fluid">
+  <div class="span12">
+    <%= image_tag @route, class: "img-polaroid img-map" %>
+  </div>
 </div>

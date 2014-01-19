@@ -5,28 +5,29 @@
     <%= f.hidden_field :order_id, value: order.id %><br>
     <div class="row-fluid">
       <%= f.label :city, class: "span3 text-left" %>
-      <%= f.select :city, (City.all.map {|c| c.name}), {}, class: 'span9' %>
+      <%= f.select :city, (City.all.map {|c| c.name}), {}, class: 'span5' %>
     </div><br>
     <div class="row-fluid">
       <%= f.label :street, class: "span3 text-left" %>
-      <%= f.text_field :street, class: 'span9' %>
+      <%= f.text_field :street, class: 'span5' %>
     </div><br>
     <div class="row-fluid">
       <%= f.label :house, class: "span3 text-left" %>
-      <%= f.text_field :house, class: 'span9' %>
+      <%= f.text_field :house, class: 'span5' %>
     </div><br>
     <div class="row-fluid">
       <%= f.label :porch, class: "span3 text-left" %>
-      <%= f.text_field :porch, class: 'span9' %>
-    </div>
-
-    <hr>
-
+      <%= f.text_field :porch, class: 'span5' %>
+    </div><br>
     <div class="row-fluid">
-      <%= f.submit 'Составить маршрут', class: 'btn btn-primary', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
-      <% if order.places.count < 1 %>
-        <a class='btn btn-primary' id='close_places_form' href="#" title='По городу (не знаю куда)'>По счетчику</a>
-      <% end %>
+      <div class="span4">
+        <%= f.submit 'Составить маршрут', class: 'btn btn-primary', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
+      </div>
+      <div class="span4">
+        <% if order.places.count < 1 %>
+          <input type="button" class='btn btn-primary' id='close_places_form' title='По городу (не знаю куда)' value="По счетчику">
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

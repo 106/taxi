@@ -2,13 +2,15 @@
 <html lang="ru">
 <head>
   <title>DnTaxi</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Exo+2:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <!-- <div class="navbar navbar-static-top">
+
+<!--   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
         <ul class="nav pull-right" id="loginbar">
           <li class='nav_item'><%= link_to 'Новый заказ', root_path %></li>
@@ -22,17 +24,33 @@
         </ul>
     </div>
   </div> -->
-  <div class='brand_stripe'>
-    <ul class="pull-right" id="loginbar">
-      <li class='nav_item'><%= link_to 'Новый заказ', root_path %></li>
-    </ul>
-    <br>
-    <h1 class='brand'><span><%= link_to 'My', root_path, class: 'red_link'%></span><%= link_to 'taxi.dn.ua', root_path, class: 'white_link'%></h1>
-</div>
 
-  <div class="container content">
+  <div class="brand-stripe-wrapper">
+    <div class='brand_stripe'>
+      <div class="container">
+        <ul class="pull-right unstyled top-navigation" id="loginbar">
+          <li><%= link_to 'Новый заказ', root_path %></li>
+        </ul>
+        <%= link_to root_path, class: 'brand' do %>
+          <span>My</span>taxi.dn.ua
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
     <%= yield %>
   </div>
-<%= javascript_include_tag "application" %>
+
+  <div class="push-footer"></div>
+
+  <div class="footer">
+    <div class="container">
+      <%= link_to "Ololo 1", "#" %>
+      <%= link_to "Ololo 2", "#" %>
+    </div>
+  </div>
+
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

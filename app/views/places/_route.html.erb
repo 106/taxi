@@ -5,16 +5,16 @@
     <tr>
       <td><strong>Откуда</strong></td>
       <td><%= "#{from.city}, #{from.street}, #{from.house}"%></td>
-      <td><i class="icon-pencil icon-blue"></i></td>
-      <td><i class="icon-remove icon-red"></i></td>
+      <td><a href="#" class="btn btn-primary"><i class="icon-pencil"></i></a></td>
+      <td><a href="#" class="btn btn-danger"><i class="icon-remove"></i></a></td>
     </tr>
     <% if through.any? %>
       <% through.each do |place| %>
         <tr>
           <td><strong>Через</strong></td>
           <td><%= "#{place.city}, #{place.street}, #{place.house}"%></td>
-          <td><i class="icon-pencil icon-blue"></i></td>
-          <td><i class="icon-remove icon-red"></i></td>
+          <td><a href="#" class="btn btn-primary"><i class="icon-pencil"></i></a></td>
+          <td><a href="#" class="btn btn-danger"><i class="icon-remove"></i></a></td>
         </tr>
       <% end %>
     <% end %>
@@ -22,8 +22,8 @@
       <tr>
         <td><strong>Куда</strong></td>
         <td><%= "#{to.city}, #{to.street}, #{to.house}"%></td>
-        <td><i class="icon-pencil"></i></td>
-        <td><i class="icon-remove"></i></td>
+          <td><a href="#" class="btn btn-primary"><i class="icon-pencil"></i></a></td>
+          <td><a href="#" class="btn btn-danger"><i class="icon-remove"></i></a></td>
       </tr>
     <% end %>
   </table>

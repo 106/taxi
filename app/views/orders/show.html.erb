@@ -1,17 +1,15 @@
-
 <% if @order.calculated?%>
-  <div style='background: linear-gradient(to right, #3a4c5b, #0066aa ); color: white; width: 100%;'>
-    <h2 style='margin-left: 25px; font-weight:100;'>Ваш маршрут: <span style='color: #b84762; font-weight: 100;'><%= @order.distance %></span> км</h2>
-  </div>
+  <h2 class="page-heading">
+    Ваш маршрут: <span style='color: #b84762; font-weight: 100;'><%= @order.distance %></span> км
+  </h2>
 <% end %>
+
 <% if @order.created? %>
-  <div style='background: linear-gradient(to right, #3a4c5b, #0066aa ); color: white; width: 100%;'>
-    <h2 style='margin-left: 25px; font-weight:100;'>Ваш заказ принят!</h2>
+  <h2 class="page-heading">Ваш заказ принят!</h2>
+  <div class="well">
+    <h4>Благодарим Вас за заказ!</h4>
+    <p>Ожидайте звонка оператора. Если вам не перезвонят в течение 15 минут &ndash; попробуйте повторить заказ.</p>
   </div>
-<div class="well">
-  <h4>Благодарим Вас за заказ!</h4>
-  <p>Ожидайте звонка оператора. Если вам не перезвонят в течение 15 минут &ndash; попробуйте повторить заказ.</p>
-</div>
 <% end %>
 
 <div class="row-fluid">

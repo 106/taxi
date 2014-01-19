@@ -1,37 +1,31 @@
-<br>
 <div class='errors'></div>
 <div class="place<%=order.places.count %>">
   <%= form_for place, html: {class: 'form-horizontal'}, remote: true do |f|%>
     <%= token_tag(nil) %>
-    <%= f.hidden_field :order_id, value: order.id %>
-    <div class="control-group">
-      <%= f.label :city, class: "control-label text-left" %>
-      <div class="controls">
-        <%= f.select :city, (City.all.map {|c| c.name}) %>
-      </div>
+    <%= f.hidden_field :order_id, value: order.id %><br>
+    <div class="row-fluid">
+      <%= f.label :city, class: "span3 text-left" %>
+      <%= f.select :city, (City.all.map {|c| c.name}), {}, class: 'span9' %>
+    </div><br>
+    <div class="row-fluid">
+      <%= f.label :street, class: "span3 text-left" %>
+      <%= f.text_field :street, class: 'span9' %>
+    </div><br>
+    <div class="row-fluid">
+      <%= f.label :house, class: "span3 text-left" %>
+      <%= f.text_field :house, class: 'span9' %>
+    </div><br>
+    <div class="row-fluid">
+      <%= f.label :porch, class: "span3 text-left" %>
+      <%= f.text_field :porch, class: 'span9' %>
     </div>
-    <div class="control-group">
-      <%= f.label :street, class: "control-label text-left" %>
-      <div class="controls">
-        <%= f.text_field :street %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :house, class: "control-label text-left" %>
-      <div class="controls">
-        <%= f.text_field :house %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :porch, class: "control-label text-left" %>
-      <div class="controls">
-        <%= f.text_field :porch %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.submit 'Составить маршрут', class: 'btn btn-success', id: "add_to_route" %>
+
+    <hr>
+
+    <div class="row-fluid">
+      <%= f.submit 'Составить маршрут', class: 'btn btn-primary', id: "add_to_route" %>
       <% if order.places.count < 1 %>
-        <a class='btn btn-success' id='close_places_form' href="#" alt='По городу (не знаю куда)'>По счетчику</a>
+        <a class='btn btn-primary' id='close_places_form' href="#" alt='По городу (не знаю куда)'>По счетчику</a>
       <% end %>
     </div>
   <% end %>

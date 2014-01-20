@@ -13,7 +13,7 @@
     <% @order.places.each_with_index do |place, index| %>
       <tr>
         <td ><%= ('A'..'Z').to_a[index] %></td>
-        <td><%= "#{place.city},  #{place.street}, #{place.house}"%></td>
+        <td><%= "#{place.city.name},  #{place.street}, #{place.house}"%></td>
       </tr>
     <% end %>
     <td colspan='2'>

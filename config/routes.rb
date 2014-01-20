@@ -8,6 +8,7 @@ DnTaxi::Application.routes.draw do
   resources :feedbacks
   resources :users
   resources :cities
+  resources :streets
   get "static_pages/main"
 
   scope 'taxi_panel', :module => :taxi_panel do

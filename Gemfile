@@ -7,6 +7,8 @@ gem 'rails', '4.0.2'
 # gem 'mysql2'
 gem 'pg'
 gem 'devise'
+gem "nokogiri", "~> 1.6.1"
+gem 'jquery-ui-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

@@ -4,8 +4,8 @@
     <%= token_tag(nil) %>
     <%= f.hidden_field :order_id, value: order.id %><br>
     <div class="row-fluid">
-      <%= f.label :city, class: "span3 text-left" %>
-      <%= f.select :city, (City.all.map {|c| c.name}), {}, class: 'span5' %>
+      <%= f.label :city_id, class: "span3 text-left" %>
+      <%= f.select :city_id, (City.all.map {|c| [c.name, c.id] }), {}, class: 'span5' %>
     </div><br>
     <div class="row-fluid">
       <%= f.label :street, class: "span3 text-left" %>

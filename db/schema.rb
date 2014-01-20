@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117065515) do
+ActiveRecord::Schema.define(version: 20140120181023) do
 
   create_table "cities", force: true do |t|
     t.string "name"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140117065515) do
   end
 
   create_table "places", force: true do |t|
-    t.string   "city",       default: "Donetsk"
+    t.integer  "city_id"
     t.string   "street"
     t.string   "house"
     t.integer  "order_id"
@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(version: 20140117065515) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "region",     default: "Donetsk"
+  end
+
+  create_table "streets", force: true do |t|
+    t.string   "name"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taxis", force: true do |t|

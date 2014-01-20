@@ -1,14 +1,15 @@
 class Place < ActiveRecord::Base
 	belongs_to :order
+	belongs_to :city
 
-	validates :city, presence: true
+	validates :city_id, presence: true
 	validates :street, presence: true
 	validates :house, presence: true
 
 	before_save :set_cords
 
 	def get_address
-		"Ukraine,#{formated(self.region)},#{formated(self.city)},#{formated(self.street)},#{formated(self.house)}"
+		"Ukraine,#{formated(self.region)},#{formated(self.city.name)},#{formated(self.street)},#{formated(self.house)}"
 	end
 
 	private

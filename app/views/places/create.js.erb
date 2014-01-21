@@ -7,3 +7,11 @@
 	  $('.route').html("<%=e render 'new_place', :place => Place.new, :order => @place.order %>");
 	}
 <% end %>
+
+
+
+var city_id = $("#place_city_id").val();
+$("#place_street").autocomplete({
+  source: "/streets.json?city_id=" + city_id,
+  minLength: 2
+});

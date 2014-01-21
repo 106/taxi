@@ -2,7 +2,7 @@ ru:
   activerecord:
     attributes:
       place:
-        city: 'Город:'
+        city_id: 'Город:'
         street: 'Улица:'
         house: 'Дом:'
         porch: 'Подъезд:'

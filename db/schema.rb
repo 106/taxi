@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120181023) do
+ActiveRecord::Schema.define(version: 20140121184625) do
 
   create_table "cities", force: true do |t|
     t.string "name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140120181023) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "region",     default: "Donetsk"
+    t.string   "uniq_id"
   end
 
   create_table "streets", force: true do |t|

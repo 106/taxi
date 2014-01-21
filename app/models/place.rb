@@ -26,3 +26,6 @@ class Place < ActiveRecord::Base
 	end
 
 end
+
+
+# Digest::SHA1.hexdigest()

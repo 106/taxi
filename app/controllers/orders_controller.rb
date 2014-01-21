@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @taxis = Taxi.where(:city => @order.places.first.city) if @order.calculated?
+    @taxis = Taxi.where(:city => @order.places.first.city.name) if @order.calculated?
     @route = @order.route
   end
 

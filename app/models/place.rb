@@ -5,6 +5,7 @@ class Place < ActiveRecord::Base
 	validates :city_id, presence: true
 	validates :street, presence: true
 	validates :house, presence: true
+	validates :uniq_id, presence: true, uniqueness: true
 
 	before_save :set_cords
 
@@ -26,6 +27,3 @@ class Place < ActiveRecord::Base
 	end
 
 end
-
-
-# Digest::SHA1.hexdigest()

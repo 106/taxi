@@ -3,6 +3,7 @@
   <%= form_for place, html: {class: 'form-horizontal'}, remote: true do |f|%>
     <%= token_tag(nil) %>
     <%= f.hidden_field :order_id, value: order.id %><br>
+    <%= f.hidden_field :uniq_id, value: Digest::SHA1.hexdigest((0...50).map { ('a'..'z').to_a[rand(26)] }.join + Time.now.to_s) %>
     <div class="row-fluid">
       <%= f.label :city_id, class: "span3 text-left" %>
       <%= f.select :city_id, (City.all.map {|c| [c.name, c.id] }), {}, class: 'span5' %>

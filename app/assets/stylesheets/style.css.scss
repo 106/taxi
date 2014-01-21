@@ -113,9 +113,7 @@ a.brand {
 }
 
 textarea {
-	&:focus {
-		font-weight: bold;
-	}
+	font-weight: 200;
 }
 
 .btn-primary {
@@ -137,3 +135,12 @@ textarea {
 @media (max-width: 724) {
 
 }
+
+.field_with_errors input {
+	border: 1px solid #b84762
+}
+
+.errors ul li {
+	color: #b84762;
+}
+

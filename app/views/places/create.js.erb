@@ -1,6 +1,4 @@
-<% if @place.errors.present? %>
-  $('.errors').html('<%= @place.errors.full_messages%>') //какой-то человеческий вид нужен...
-<% else %>
+<% unless @place.errors.present? %>
 	$('.place<%="#{@place.order.places.count-1}"%>').hide();
 	$('#your_route').html("<%=e render 'route', :places => @place.order.places %>")
 	if ($("input#order_by_count").val() === 'false') {

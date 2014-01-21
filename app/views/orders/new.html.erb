@@ -4,7 +4,9 @@
 
   <div class="span6">
     <div class="route">
-      <%= render 'places/new_place', :place => Place.new, :order => @order %>
+      <% unless @order.by_count %>
+        <%= render 'places/new_place', :place => Place.new, :order => @order %>
+      <% end %>
     </div>
   </div>
 
@@ -25,7 +27,7 @@
       <% if user_signed_in? %>
         <%= f.hidden_field :user_id, value: current_user.id %>
       <% end %>
-      <%= f.hidden_field :by_count, value: false%>
+      <%= f.hidden_field :by_count %>
       <h4>Дополнительные услуги</h4>
       <label class="checkbox">
         <%= f.check_box :vip %>Машина представительского класса

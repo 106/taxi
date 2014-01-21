@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121184625) do
+ActiveRecord::Schema.define(version: 20140121201131) do
 
   create_table "cities", force: true do |t|
     t.string "name"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20140121184625) do
     t.datetime "updated_at"
     t.string   "state"
     t.text     "comment"
-    t.boolean  "by_count"
+    t.boolean  "by_count",         default: false
     t.boolean  "animals"
     t.boolean  "air_conditioning"
     t.boolean  "vip"

@@ -10,7 +10,7 @@ class Place < ActiveRecord::Base
 	before_save :set_cords
 
 	def get_address
-		"Ukraine,#{formated(self.region)},#{formated(self.city.name)},#{formated(self.street)},#{formated(self.house)}"
+		"#{formated('Ukraine')},+#{formated(self.city.name)},+#{formated(self.street)},+#{formated(self.house)}"
 	end
 
 	private
@@ -21,9 +21,8 @@ class Place < ActiveRecord::Base
 	end
 
 	def set_cords
-		response = HTTParty.get(URI.encode("http://maps.googleapis.com/maps/api/geocode/json?address=#{get_address}&sensor=false"))
-		self.latitude = response["results"].first['geometry']['location']['lat']
-		self.longitude = response["results"].first['geometry']['location']['lng']
+		response = HTTParty.get(URI.encode("http://geocode-maps.yandex.ru/1.x/?geocode=#{get_address}&format=json"))
+		self.longitude, self.latitude = response["response"]["GeoObjectCollection"]["featureMember"].first["GeoObject"]["Point"]["pos"].split
 	end
 
 end

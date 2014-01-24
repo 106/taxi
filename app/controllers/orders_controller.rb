@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
 
   def show
     @taxis = Taxi.where(:city => @order.places.first.city.name) if @order.calculated?
-    @route = @order.route
   end
 
   def new
@@ -44,7 +43,6 @@ class OrdersController < ApplicationController
   private
 
     def calculate_params
-      @order.update_attributes distance: @order.by_count ? 0 : (@order.get_distance/1000.0).round(2)
       @order.params_calculated
     end
 
@@ -57,6 +55,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:animals, :air_conditioning, :vip, :minivan, :out_of_town, :taxi_id, :user_id, :state, :cost, :driver_id, :user_phone, :comment, :by_count, :check)
+      params.require(:order).permit(:animals, :distance, :air_conditioning, :vip, :minivan, :out_of_town, :taxi_id, :user_id, :state, :cost, :driver_id, :user_phone, :comment, :by_count, :check)
     end
 end

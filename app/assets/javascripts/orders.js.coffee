@@ -14,3 +14,9 @@ city_id = $("#place_city_id").val()
 $("#place_street").autocomplete
   source: "/streets.json?city_id=" + city_id
   minLength: 2
+
+$("#additional_toggler").on "click", (event) ->
+  event.preventDefault()
+  event.stopPropagation()
+  $("#additional").toggle();
+  $("#additional_toggler i").toggleClass("icon-chevron-down icon-chevron-up");

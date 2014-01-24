@@ -1,6 +1,6 @@
-<% if @order.calculated?%>
+<% if @order.calculated? %>
   <h2 class="page-heading">
-    Ваш маршрут: <span style='color: #b84762; font-weight: 100;'><%= @order.distance %></span> км
+    Ваш маршрут: <span style='color: #b84762; font-weight: 100;'><%= @order.human_distance %></span> км
   </h2>
 <% end %>
 

@@ -8,45 +8,34 @@
         <%= render 'places/new_place', :place => Place.new, :order => @order %>
       <% end %>
     </div>
-  </div>
-
-  <div class="span6">
-    <div class="errors">
-      <ul>
-        <% @order.errors.full_messages.each do |e| %>
-          <li><%= " #{e}" %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div id='your_route'>
-      <% if @order.places.any? %>
-        <%= render 'places/route', :places => @order.places %>
-      <% end %>
-    </div>
     <%= form_for(@order, :html => {:class => "form-horizontal"}) do |f| %>
       <% if user_signed_in? %>
         <%= f.hidden_field :user_id, value: current_user.id %>
       <% end %>
       <%= f.hidden_field :by_count %>
-      <h4>Дополнительные услуги</h4>
-      <label class="checkbox">
-        <%= f.check_box :vip %>Машина представительского класса
-      </label>
-      <label class="checkbox">
-        <%= f.check_box :air_conditioning %>Машина с кондиционером
-      </label>
-      <label class="checkbox">
-        <%= f.check_box :animals %>Перевозка животных
-      </label>
-      <label class="checkbox">
-        <%= f.check_box :minivan %>Минивен
-      </label>
-      <label class="checkbox">
-        <%= f.check_box :out_of_town %>Поездка за город
-      </label>
-      <label class="checkbox">
-        <%= f.check_box :check %>Чек
-      </label><br>
+      <%= f.hidden_field :distance %>
+      <h4>Дополнительные услуги <a href="#" id='additional_toggler' class='btn btn-primary'><i class="icon-chevron-down"></i></a></h4>
+      <div id='additional'>
+        <label class="checkbox">
+          <%= f.check_box :vip %>Машина представительского класса
+        </label>
+        <label class="checkbox">
+          <%= f.check_box :air_conditioning %>Машина с кондиционером
+        </label>
+        <label class="checkbox">
+          <%= f.check_box :animals %>Перевозка животных
+        </label>
+        <label class="checkbox">
+          <%= f.check_box :minivan %>Минивен
+        </label>
+        <label class="checkbox">
+          <%= f.check_box :out_of_town %>Поездка за город
+        </label>
+        <label class="checkbox">
+          <%= f.check_box :check %>Чек
+        </label>
+      </div>
+      <hr>
 
       <div class="row-fluid">
         <div class="span3">
@@ -71,5 +60,20 @@
       </div>
 
     <% end %>
+  </div>
+
+  <div class="span6">
+    <div class="errors">
+      <ul>
+        <% @order.errors.full_messages.each do |e| %>
+          <li><%= " #{e}" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div id='your_route'>
+      <% if @order.places.any? %>
+        <%= render 'places/route', :places => @order.places %>
+      <% end %>
+    </div>
   </div>
 </div>

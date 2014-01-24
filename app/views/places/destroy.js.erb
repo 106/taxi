@@ -1,0 +1,5 @@
+<% if @order.places.any? %>
+  $('#your_route').html("<%=e render 'route', :places => @order.places %>");
+<% else %>
+  $('#your_route').html("");
+<% end %>

@@ -5,8 +5,16 @@
     <tr>
       <td><strong>Откуда</strong></td>
       <td><%= "#{from.city.name}, #{from.street}, #{from.house}"%></td>
-      <td><a href="#" class="btn btn-primary"><i class="icon-pencil"></i></a></td>
-      <td><a href="#" class="btn btn-danger"><i class="icon-remove"></i></a></td>
+      <td>
+        <%= link_to edit_place_path(from), class: 'btn btn-primary', remote: true do %>
+          <i class="icon-pencil"></i>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to from, method: :delete, class: 'btn btn-danger', remote: true do %>
+          <i class="icon-remove"></i>
+        <% end %>
+      </td>
     </tr>
     <% if through.any? %>
       <% through.each do |place| %>
@@ -14,7 +22,11 @@
           <td><strong>Через</strong></td>
           <td><%= "#{place.city.name}, #{place.street}, #{place.house}"%></td>
           <td><a href="#" class="btn btn-primary"><i class="icon-pencil"></i></a></td>
-          <td><a href="#" class="btn btn-danger"><i class="icon-remove"></i></a></td>
+          <td>
+            <%= link_to place, method: :delete, class: 'btn btn-danger', remote: true do %>
+              <i class="icon-remove"></i>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     <% end %>
@@ -23,8 +35,14 @@
         <td><strong>Куда</strong></td>
         <td><%= "#{to.city.name}, #{to.street}, #{to.house}"%></td>
           <td><a href="#" class="btn btn-primary"><i class="icon-pencil"></i></a></td>
-          <td><a href="#" class="btn btn-danger"><i class="icon-remove"></i></a></td>
+          <td>
+            <%= link_to to, method: :delete, class: 'btn btn-danger', remote: true do %>
+              <i class="icon-remove"></i>
+            <% end %>
+          </td>
       </tr>
     <% end %>
   </table>
 </div>
+
+

@@ -9,7 +9,8 @@ DnTaxi::Application.routes.draw do
   resources :users
   resources :cities
   resources :streets
-  get "static_pages/main"
+  get "/about", to: 'static_pages#about'
+  get "/partners", to: 'static_pages#partners'
 
   scope 'taxi_panel', :module => :taxi_panel do
     get "/" => redirect("/taxi_panel/booked_orders")

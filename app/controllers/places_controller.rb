@@ -34,8 +34,8 @@ class PlacesController < ApplicationController
   end
 
   def destroy
+    @order = @place.order
     @place.destroy
-    redirect_to places_url
   end
 
   private

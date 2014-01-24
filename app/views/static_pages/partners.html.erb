@@ -1,0 +1,11 @@
+<div class="well">
+  <h2 class='red' >Наши партнеры</h2>
+  <ul>
+		<% @taxis.each do |taxi| %>
+		  <li>
+		  	<%= taxi.name %>
+		  </li>
+		<% end %>
+	</ul>
+	<%= link_to 'Присоединиться', new_taxi_registration_path, class: 'pull-right' %>
+</div>

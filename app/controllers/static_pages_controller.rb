@@ -1,6 +1,10 @@
 class StaticPagesController < ApplicationController
-	
-	def main
+
+	def about
+	end
+
+	def partners
+		@taxis = Taxi.all
 	end
 
 end

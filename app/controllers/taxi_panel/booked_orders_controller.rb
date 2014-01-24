@@ -14,10 +14,9 @@ module TaxiPanel
     end
 
     def update
-    	binding.pry
-    	if @booked_order.update_attributes booked_order_params   		
-    	  @booked_order.driver_was_choosen if @booked_order.created? && @booked_order.driver_id.present?
-    	end
+      if @booked_order.update_attributes booked_order_params
+        @booked_order.driver_was_choosen if @booked_order.created? && @booked_order.driver_id.present?
+      end
     end
 
     private

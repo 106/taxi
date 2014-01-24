@@ -57,7 +57,7 @@ function init() {
           <%= form_for @order do |f| %>
             <%= f.hidden_field :taxi_id, :value => taxi.id %>
             <%= f.hidden_field :cost, :value => taxi.cost_for_distance(@order.human_distance).round(2) %>
-            <%= f.submit 'Заказать', class: 'btn btn-primary', style: 'margin-top: 10px;' %>
+            <%= f.submit 'Заказать', class: 'btn btn-primary', style: 'margin-top: 2em;' %>
           <% end %>
         </td>
       </tr>

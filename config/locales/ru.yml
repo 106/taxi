@@ -10,7 +10,7 @@ ru:
         user_phone: "Телефон:"
         comment: "Комментарий:"
   order:
-    air_conditioning: 'Кондиционер'
+    air_conditioning: 'Машина с кондиционером'
     check: 'Чек'
     vip: 'Машина представительского класса'
     animals: 'Перевозка животных'

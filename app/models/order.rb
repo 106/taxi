@@ -33,7 +33,7 @@ class Order < ActiveRecord::Base
   end
 
   def human_distance
-    self.distance.present? ? self.distance/1000.00 : 0
+    self.distance.present? ? (self.distance/1000.00).round(2) : 0
   end
 
   private

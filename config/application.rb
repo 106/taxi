@@ -10,6 +10,8 @@ module DnTaxi
   class Application < Rails::Application
     config.assets.initialize_on_precompile = false
     config.assets.enabled = false
+    config.time_zone = "Kyiv"
+    config.active_record.default_timezone = "Kyiv"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

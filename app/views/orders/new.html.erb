@@ -1,5 +1,3 @@
-<h2 class="page-heading">Новый заказ</h2>
-
 <div class="row-fluid">
 
   <div class="span6">
@@ -14,9 +12,7 @@
       <% end %>
       <%= f.hidden_field :by_count %>
       <%= f.hidden_field :distance %>
-      <hr/>
-      <h4>Дополнительные услуги <a href="#" id='additional_toggler' class='btn btn-primary'><i class="icon-chevron-down"></i></a></h4>
-      <div id='additional'>
+      <h4 class='red'>Дополнительные услуги</h4>
         <label class="checkbox">
           <%= f.check_box :vip %>Машина представительского класса
         </label>
@@ -35,7 +31,6 @@
         <label class="checkbox">
           <%= f.check_box :check %>Чек
         </label>
-      </div>
       <hr/>
 
       <div class="row-fluid">

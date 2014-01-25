@@ -13,6 +13,11 @@ class Place < ActiveRecord::Base
 		"#{formated('Ukraine')},+#{formated(self.city.name)},+#{formated(self.street)},+#{formated(self.house)}"
 	end
 
+	def human_address
+		addr = "#{self.street}, #{self.house}"
+		addr << ", #{self.porch}п." if self.porch.present?
+	end
+
 	private
 
 	def formated str

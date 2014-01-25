@@ -1,0 +1,11 @@
+<td><%= "#{point.city.name}, #{point.street}, #{point.house}"%></td>
+<td>
+  <%= link_to edit_place_path(point), title: 'Изменить', class: 'btn btn-primary', remote: true do %>
+    <i class="icon-pencil"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to point, method: :delete, title: 'Удалить', class: 'btn btn-danger', remote: true do %>
+    <i class="icon-remove"></i>
+  <% end %>
+</td>

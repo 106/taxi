@@ -124,7 +124,12 @@ textarea {
 }
 
 .btn-primary {
+  font-weight: 100;
+  letter-spacing: .1em;
 	background: #06a !important;
+	&:hover {
+		background: #07b !important;
+	}
 }
 
 .img-map {
@@ -157,4 +162,10 @@ i {
 
 .red {
 	color: #b84762 !important;
+}
+
+.btn-danger {
+  background: #b84762 !important;
+	font-weight: 100;
+	letter-spacing: .1em;
 }

@@ -1,17 +1,11 @@
-<h2>Sign in</h2>
-
+<h2>Вход</h2>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%= f.label :password %>
+  <%= f.password_field :password %></div><br>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
+  <div><%= f.submit t("#{resource_name}.sign_in"), class: 'btn btn-primary' %></div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<% render "devise/shared/links" %>

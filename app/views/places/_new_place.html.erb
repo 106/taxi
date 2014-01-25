@@ -1,4 +1,10 @@
 <div class='errors'></div>
+<% if order.places.any? %>
+  <h4 class='red'> Добавьте следующий адрес на маршрут </h4>
+<% else %>
+  <h4 class='red'>Куда подать машину?</h4>
+<% end %>
+
 <div class="place<%=order.places.count %>">
   <%= form_for place, html: {class: 'form-horizontal'}, remote: true do |f|%>
     <%= token_tag(nil) %>
@@ -7,26 +13,20 @@
     <div class="row-fluid">
       <%= f.label :city_id, class: "span3 text-left" %>
       <%= f.select :city_id, (City.all.map {|c| [c.name, c.id] }), {}, class: 'span5' %>
-    </div><br>
+    </div>
     <div class="row-fluid">
       <%= f.label :street, class: "span3 text-left" %>
       <%= f.text_field :street, class: 'span5' %>
-    </div><br>
+    </div>
     <div class="row-fluid">
       <%= f.label :house, class: "span3 text-left" %>
       <%= f.text_field :house, class: 'span5' %>
-    </div><br>
+    </div>
     <div class="row-fluid">
       <%= f.label :porch, class: "span3 text-left" %>
       <%= f.text_field :porch, class: 'span5' %>
-    </div><br>
-    <div class="row-fluid">
-      <div class="span12">
-        <%= f.submit 'Составить маршрут', class: 'btn btn-primary', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
-        <% if order.places.count < 1 %>
-          <input type="button" class='btn btn-primary' id='close_places_form' title='По городу (не знаю куда)' value="По счетчику">
-        <% end %>
-      </div>
     </div>
+    <%= f.submit 'Составить маршрут', class: 'btn btn-primary pull-left', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
   <% end %>
 </div>
+<br>

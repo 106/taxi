@@ -36,6 +36,12 @@ class Order < ActiveRecord::Base
     self.distance.present? ? (self.distance/1000.00).round(2) : 0
   end
 
+  def from
+    self.places.first
+  end
+
+
+
   private
 
 end

@@ -1,4 +1,4 @@
-<h2>Новые заказы</h2>
+<h2>Старые заказы</h2>
 <div class='well'>
   <table class='table'>
   	<tr>
@@ -8,6 +8,7 @@
       <th>Комментарий</th>
       <th>Доп. условия</th>
       <th>Водитель</th>
+      <th></th>
   	</tr>
     <% @booked_orders.each do |booked_order| %>
       <tr>
@@ -16,12 +17,7 @@
         <td><%= booked_order.user_phone %></td>
         <td><%= booked_order.comment %></td>
         <td><%= render 'orders/additional_conditions', order: booked_order%></td>
-        <td>
-          <%= form_for booked_order, :url=>"/taxi_panel/booked_orders/#{booked_order.id}" do |f| %>
-            <%= f.text_field :driver_id, class: 'span1' %>
-            <%= f.submit "Сохранить", class: 'btn btn-primary'  %>
-          <% end %>
-        </td>
+        <td><%= booked_order.driver.number %></td>
       </tr>
     <% end %>
   </table>

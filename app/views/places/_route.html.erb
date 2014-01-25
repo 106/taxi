@@ -1,45 +1,23 @@
 <div class="well">
   <h3>Ваш маршрут</h3>
   <% from, *through, to = places %>
-  <table class="table table-striped table-bordered">
+  <table class="table ">
     <tr>
       <td><strong>Откуда</strong></td>
-      <td><%= "#{from.city.name}, #{from.street}, #{from.house}"%></td>
-      <td>
-        <%= link_to edit_place_path(from), class: 'btn btn-primary', remote: true do %>
-          <i class="icon-pencil"></i>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to from, method: :delete, class: 'btn btn-danger', remote: true do %>
-          <i class="icon-remove"></i>
-        <% end %>
-      </td>
+      <%= render "route_point", point: from %>
     </tr>
     <% if through.any? %>
       <% through.each do |place| %>
         <tr>
           <td><strong>Через</strong></td>
-          <td><%= "#{place.city.name}, #{place.street}, #{place.house}"%></td>
-          <td><a href="#" class="btn btn-primary"><i class="icon-pencil"></i></a></td>
-          <td>
-            <%= link_to place, method: :delete, class: 'btn btn-danger', remote: true do %>
-              <i class="icon-remove"></i>
-            <% end %>
-          </td>
+          <%= render "route_point", point: place %>
         </tr>
       <% end %>
     <% end %>
     <%if to.present? %>
       <tr>
         <td><strong>Куда</strong></td>
-        <td><%= "#{to.city.name}, #{to.street}, #{to.house}"%></td>
-          <td><a href="#" class="btn btn-primary"><i class="icon-pencil"></i></a></td>
-          <td>
-            <%= link_to to, method: :delete, class: 'btn btn-danger', remote: true do %>
-              <i class="icon-remove"></i>
-            <% end %>
-          </td>
+          <%= render "route_point", point: to %>
       </tr>
     <% end %>
   </table>

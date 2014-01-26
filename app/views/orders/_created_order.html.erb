@@ -1,18 +1,25 @@
-<table class="table">
-  <tr>
-    <td>Служба такси:</td>
-    <td><strong><%= @order.taxi.name%></strong></td>
-  </tr>
-  <tr>
-    <td>Номер телефона:</td>
-    <td><%= @order.taxi.phone%></td>
-  </tr>
-  <tr>
-    <td>Расстояние:</td>
-    <td><%= @order.human_distance %> км</td>
-  </tr>
-  <tr>
-    <td>Стоимость поездки:</td>
-    <td><% if @order.by_count %> от <% end %><%= @order.cost %> грн.</td>
-  </tr>
-</table>
+<div class="row-fluid">
+  <div class="span7">
+    <table class="table">
+      <tr>
+        <td>Служба такси:</td>
+        <td><strong><%= @order.taxi.name%></strong></td>
+      </tr>
+      <tr>
+        <td>Номер телефона:</td>
+        <td><%= @order.taxi.phone%></td>
+      </tr>
+      <tr>
+        <td>Расстояние:</td>
+        <td><%= @order.human_distance %> км</td>
+      </tr>
+      <tr>
+        <td>Стоимость поездки:</td>
+        <td><% if @order.by_count %> от <% end %><%= @order.cost %> грн.</td>
+      </tr>
+    </table>
+  </div>
+<div class="span5">
+  <%= render 'order_info' %>
+</div>
+</div>

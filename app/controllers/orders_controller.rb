@@ -26,12 +26,13 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if @order.update(order_params)
+    if @order.update_attributes(order_params)
       create_it if @order.calculated?
       calculate_params if @order.pending?
       redirect_to @order, notice: 'Order was successfully updated.'
     else
-      render action: 'new'
+      render action: 'new' if @order.pending?
+      redirect_to @order if @order.calculated?
     end
   end
 
@@ -47,6 +48,7 @@ class OrdersController < ApplicationController
     end
 
     def create_it
+      @order.update_attributes cost: @order.taxi.cost_for_distance(@order.human_distance)
       @order.taxi_was_choosen
     end
 
@@ -55,6 +57,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:animals, :distance, :air_conditioning, :vip, :minivan, :out_of_town, :taxi_id, :user_id, :state, :cost, :driver_id, :user_phone, :comment, :by_count, :check)
+      params.require(:order).permit(:animals, :distance, :air_conditioning, :vip, :minivan, :out_of_town, :taxi_id, :user_id, :state, :driver_id, :user_phone, :comment, :by_count, :check)
     end
 end

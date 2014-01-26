@@ -4,20 +4,20 @@
   <table class="table ">
     <tr>
       <td><strong>Откуда</strong></td>
-      <%= render "route_point", point: from %>
+      <%= render "places/route_point", point: from %>
     </tr>
     <% if through.any? %>
       <% through.each do |place| %>
         <tr>
           <td><strong>Через</strong></td>
-          <%= render "route_point", point: place %>
+          <%= render "places/route_point", point: place %>
         </tr>
       <% end %>
     <% end %>
     <%if to.present? %>
       <tr>
         <td><strong>Куда</strong></td>
-          <%= render "route_point", point: to %>
+          <%= render "places/route_point", point: to %>
       </tr>
     <% end %>
   </table>

@@ -12,18 +12,18 @@
   </div>
 <% end %>
 
-<div class="row-fluid">
-  <div class="span7">
-    <% if @order.calculated? %>
-      <%= render 'calculated_order' %>
-    <% end %>
-
-    <% if @order.created?  %>
-      <%= render 'created_order' %>
-    <% end %>
+<% if @order.calculated? %>
+  <div class="errors">
+    <ul>
+      <% @order.valid? %>
+      <% @order.errors.full_messages.each do |e| %>
+        <li><%= " #{e}" %></li>
+      <% end %>
+    </ul>
   </div>
-  <div class="span5">
-    <%= render 'order_info' %>
-  </div>
-</div>
+  <%= render 'calculated_order' %>
+<% end %>
+<% if @order.created?  %>
+  <%= render 'created_order' %>
+<% end %>
 

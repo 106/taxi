@@ -5,20 +5,24 @@
     <br>
   <% end %>
   <table class='table table-striped table-bordered'>
+    <% if @order.user_phone.present? %>
     <tr>
       <td colspan='2'>
         Тел. <b><%= "+38#{@order.user_phone}"%></b>
       </td>
     </tr>
+    <% end %>
     <% @order.places.each_with_index do |place, index| %>
       <tr>
         <td ><%= ('A'..'Z').to_a[index] %></td>
         <td><%= "#{place.city.name},  #{place.address}"%></td>
       </tr>
     <% end %>
-    <td colspan='2'>
-      <%= @order.comment %>
-    </td>
+    <% if @order.comment.present? %>
+      <td colspan='2'>
+        <%= @order.comment %>
+      </td>
+    <% end %>
   </table>
   <%= render 'additional_conditions', order: @order%>
 </div>

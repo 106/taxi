@@ -4,7 +4,8 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :places
 
-  validates :user_phone, presence: true, :on => :update
+  validates :user_phone, presence: true, :on => :update, if: :phone_required?
+  validate :at_least_one_address, on: :update
 
 	state_machine :state, initial: :pending do
 
@@ -40,9 +41,14 @@ class Order < ActiveRecord::Base
     self.places.first
   end
 
-
-
   private
 
-end
+  def phone_required?
+    self.state_was == "calculated"
+  end
 
+  def at_least_one_address
+    errors.add(:order, I18n.t('order.errors.one_address')) if self.places.empty?
+  end
+
+end

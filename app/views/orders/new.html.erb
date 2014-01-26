@@ -7,9 +7,6 @@
       <% end %>
     </div>
     <%= form_for(@order, :html => {:class => "form-horizontal"}) do |f| %>
-      <% if user_signed_in? %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-      <% end %>
       <%= f.hidden_field :by_count %>
       <%= f.hidden_field :distance %>
       <h4 class='red'>Дополнительные услуги</h4>
@@ -51,30 +48,8 @@
             </td>
           </tr>
         </table>
-
-      <div class="row-fluid">
-        <div class="span3">
-          <%= f.label :comment, class: "order" %>
-        </div>
-        <div class="span9">
-          <%= f.text_area :comment, class: 'span12', rows: '5', placeholder: "Здесь Вы можете уточнить месторасположение точки отправления" %>
-        </div>
-      </div><br>
-
-      <div class="row-fluid">
-        <div class="span3">
-          <%= f.label :user_phone, class: "order" %>
-        </div>
-        <div class="span9">
-          <div class="input-prepend phone">
-            <span class="add-on">+38</span>
-            <%= f.text_field :user_phone, class: 'input-small' %>
-          </div>
-          <%= f.submit 'Заказать', class: "btn btn-danger submit pull-right" %>
-        </div>
-      </div>
-
-    <% end %>
+        <%= f.submit t('order.calculate'), class: "btn btn-danger submit pull-left" %>
+      <% end %>
   </div>
 
   <div class="span6">

@@ -3,18 +3,17 @@ class Place < ActiveRecord::Base
 	belongs_to :city
 
 	validates :city_id, presence: true
-	validates :street, presence: true
-	validates :house, presence: true
+	validates :address, presence: true
 	validates :uniq_id, presence: true, uniqueness: true
 
 	before_save :set_cords
 
 	def get_address
-		"#{formated('Ukraine')},+#{formated(self.city.name)},+#{formated(self.street)},+#{formated(self.house)}"
+		"#{formated('Ukraine')},+#{formated(self.city.name)},+#{formated(self.address)}"
 	end
 
 	def human_address
-		addr = "#{self.street}, #{self.house}"
+		addr = self.address
 		addr << ", #{self.porch}п." if self.porch.present?
 	end
 

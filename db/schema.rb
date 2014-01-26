@@ -57,8 +57,7 @@ ActiveRecord::Schema.define(version: 20140121201131) do
 
   create_table "places", force: true do |t|
     t.integer  "city_id"
-    t.string   "street"
-    t.string   "house"
+    t.string   "address"
     t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"

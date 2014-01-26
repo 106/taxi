@@ -11,7 +11,7 @@ $("#close_places_form").on "click", (event) ->
   $("#order_by_count").val "true"
 
 city_id = $("#place_city_id").val()
-$("#place_street").autocomplete
+$("#place_address").autocomplete
   source: "/streets.json?city_id=" + city_id
   minLength: 2
 

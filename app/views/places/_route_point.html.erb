@@ -1,4 +1,4 @@
-<td><%= "#{point.city.name}, #{point.street}, #{point.house}"%></td>
+<td><%= "#{point.city.name}, #{point.address}"%></td>
 <td>
   <%= link_to edit_place_path(point), title: 'Изменить', class: 'btn btn-primary', remote: true do %>
     <i class="icon-pencil"></i>

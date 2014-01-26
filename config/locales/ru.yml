@@ -3,8 +3,7 @@ ru:
     attributes:
       place:
         city_id: 'Город:'
-        street: 'Улица:'
-        house: 'Дом:'
+        address: 'Адрес:'
         porch: 'Подъезд:'
       order:
         user_phone: "Телефон:"

@@ -13,25 +13,44 @@
       <%= f.hidden_field :by_count %>
       <%= f.hidden_field :distance %>
       <h4 class='red'>Дополнительные услуги</h4>
-        <label class="checkbox">
-          <%= f.check_box :vip %>Машина представительского класса
-        </label>
-        <label class="checkbox">
-          <%= f.check_box :air_conditioning %>Машина с кондиционером
-        </label>
-        <label class="checkbox">
-          <%= f.check_box :animals %>Перевозка животных
-        </label>
-        <label class="checkbox">
-          <%= f.check_box :minivan %>Минивен
-        </label>
-        <label class="checkbox">
-          <%= f.check_box :out_of_town %>Поездка за город
-        </label>
-        <label class="checkbox">
-          <%= f.check_box :check %>Чек
-        </label>
-      <hr/>
+        <table class="table">
+          <tr>
+            <td>
+              <label class="checkbox">
+                <%= f.check_box :vip %><%= t('order.vip')%>
+              </label>
+            </td>
+            <td>
+              <label class="checkbox">
+                <%= f.check_box :air_conditioning %><%= t('order.air_conditioning')%>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="checkbox">
+                <%= f.check_box :animals %><%= t('order.animals')%>
+              </label>
+            </td>
+            <td>
+              <label class="checkbox">
+                <%= f.check_box :check %><%= t('order.check')%>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="checkbox">
+                <%= f.check_box :minivan %><%= t('order.minivan')%>
+              </label>
+            </td>
+            <td>
+              <label class="checkbox">
+                <%= f.check_box :out_of_town %><%= t('order.out_of_town')%>
+              </label>
+            </td>
+          </tr>
+        </table>
 
       <div class="row-fluid">
         <div class="span3">

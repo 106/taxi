@@ -27,7 +27,7 @@ class PlacesController < ApplicationController
 
   def update
     if @place.update(place_params)
-      redirect_to @place, notice: 'Place was successfully updated.'
+      redirect_to @place
     else
       render action: 'edit'
     end
@@ -44,6 +44,6 @@ class PlacesController < ApplicationController
     end
 
     def place_params
-      params.require(:place).permit(:city_id, :street, :house, :order_id, :porch, :uniq_id)
+      params.require(:place).permit(:city_id, :address, :order_id, :porch, :uniq_id)
     end
 end

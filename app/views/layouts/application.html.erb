@@ -27,24 +27,26 @@
     </div>
   </div> -->
 
-  <div class="brand-stripe-wrapper">
-    <div class='brand_stripe'>
-      <div class="container">
-        <ul class="pull-right unstyled top-navigation" id="loginbar">
-          <li><%= link_to 'Новый заказ', root_path %></li>
-        </ul>
-        <%= link_to root_path, class: 'brand' do %>
-          <span>My</span>taxi.dn.ua
-        <% end %>
+  <div id="main">
+    <div class="brand-stripe-wrapper">
+      <div class='brand_stripe'>
+        <div class="container">
+          <ul class="pull-right unstyled top-navigation" id="loginbar">
+            <li><%= link_to 'Новый заказ', root_path %></li>
+          </ul>
+          <%= link_to root_path, class: 'brand' do %>
+            <span>My</span>taxi.dn.ua
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container">
-    <%= yield %>
-  </div>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-  <div class="push-footer"></div>
+    <div class="push"></div>
+  </div>
 
   <div class="footer">
     <div class="container">

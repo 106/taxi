@@ -27,7 +27,6 @@ class PlacesController < ApplicationController
 
   def update
     if @place.update(place_params)
-      redirect_to @place
     else
       render action: 'edit'
     end

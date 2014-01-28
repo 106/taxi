@@ -4,7 +4,6 @@ DnTaxi::Application.routes.draw do
   devise_for :users
   resources :orders
   resources :places
-  resources :taxis
   resources :feedbacks
   resources :users
   resources :cities
@@ -15,6 +14,7 @@ DnTaxi::Application.routes.draw do
   scope 'taxi_panel', :module => :taxi_panel do
     get "/" => redirect("/taxi_panel/booked_orders")
     resources :booked_orders
+    resources :taxis
     get '/old_orders', to: 'booked_orders#old_orders'
     resources :drivers
   end

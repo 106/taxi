@@ -13,17 +13,8 @@
 <% end %>
 
 <% if @order.calculated? %>
-  <div class="errors">
-    <ul>
-      <% @order.valid? %>
-      <% @order.errors.full_messages.each do |e| %>
-        <li><%= " #{e}" %></li>
-      <% end %>
-    </ul>
-  </div>
   <%= render 'calculated_order' %>
 <% end %>
 <% if @order.created?  %>
   <%= render 'created_order' %>
 <% end %>
-

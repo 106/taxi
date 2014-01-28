@@ -1,11 +1,41 @@
 <td><%= "#{point.city.name}, #{point.address}"%></td>
-<td>
-  <%= link_to edit_place_path(point), title: 'Изменить', class: 'btn btn-primary', remote: true do %>
-    <i class="icon-pencil"></i>
-  <% end %>
-</td>
+<td><a href="#myModal_<%= point.id %>" role="button" class="btn btn-primary" data-toggle="modal" id="place_<%= point.id %>_edit" ><i class="icon-pencil"></i></a></td>
 <td>
   <%= link_to point, method: :delete, title: 'Удалить', class: 'btn btn-danger', remote: true do %>
     <i class="icon-remove"></i>
   <% end %>
 </td>
+
+
+
+
+<div id="myModal_<%= point.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel" class='red'>Редактирование маршрута</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for point, remote: true do |f| %>
+      <div class="row-fluid">
+	      <%= f.label :city_id, class: "span3 text-left" %>
+	      <%= f.select :city_id, (City.all.map {|c| [c.name, c.id] }), {}, class: 'span5' %>
+	    </div>
+	    <div class="row-fluid">
+	      <%= f.label :address, class: "span3 text-left" %>
+	      <%= f.text_field :address, class: 'span5', placeholder: 'Ленина, 1' %>
+	    </div>
+	    <div class="row-fluid">
+	      <%= f.label :porch, class: "span3 text-left" %>
+	      <%= f.text_field :porch, class: 'span5' %>
+	    </div>
+	    <div class="row-fluid">
+	      <div class="span3"></div>
+	      <div class="span5" style='margin-left: 0;'>
+	        <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
+	        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+	      </div>
+	    </div>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>

@@ -1,13 +1,11 @@
-<h1>Listing drivers</h1>
+<h1>Водители</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Number</th>
-      <th>Car</th>
-      <th>Car naumber</th>
-      <th>Taxi</th>
-      <th></th>
+      <th>Позывной</th>
+      <th>Автомобиль</th>
+      <th>Гос. номер</th>
       <th></th>
       <th></th>
     </tr>
@@ -19,8 +17,6 @@
         <td><%= driver.number %></td>
         <td><%= driver.car %></td>
         <td><%= driver.car_naumber %></td>
-        <td><%= driver.taxi_id %></td>
-        <td><%= link_to 'Show', driver %></td>
         <td><%= link_to 'Edit', edit_driver_path(driver) %></td>
         <td><%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

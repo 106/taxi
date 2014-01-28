@@ -4,6 +4,10 @@ body {
   background: linear-gradient(to top, #FFFFFF, #C8BED1) no-repeat;
 }
 
+body.taxi_panel {
+	background: #e6e6fa;
+}
+
 body, html {
 	height: 100%;
 }
@@ -68,6 +72,11 @@ li.nav_item a:hover{
 
 .container {
 	max-width: 980px;
+}
+
+.taxi_container {
+	max-width: 1800px !important;
+	width: 100%;
 }
 
 .white_link{

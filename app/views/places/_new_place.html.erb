@@ -12,19 +12,19 @@
     <%= f.hidden_field :uniq_id, value: Digest::SHA1.hexdigest((0...50).map { ('a'..'z').to_a[rand(26)] }.join + Time.now.to_s) %>
     <div class="row-fluid">
       <%= f.label :city_id, class: "span3 text-left" %>
-      <%= f.select :city_id, (City.all.map {|c| [c.name, c.id] }), {}, class: 'span5' %>
+      <%= f.select :city_id, (City.all.map {|c| [c.name, c.id] }), {}, class: 'span7' %>
     </div>
     <div class="row-fluid">
       <%= f.label :address, class: "span3 text-left" %>
-      <%= f.text_field :address, class: 'span5', placeholder: 'Ленина, 1' %>
+      <%= f.text_field :address, class: 'span7', placeholder: 'Ленина, 1' %>
     </div>
     <div class="row-fluid">
       <%= f.label :porch, class: "span3 text-left" %>
-      <%= f.text_field :porch, class: 'span5' %>
+      <%= f.text_field :porch, class: 'span7' %>
     </div>
     <div class="row-fluid">
       <div class="span3"></div>
-      <div class="span5" style='margin-left: 0;'>
+      <div class="span7" style='margin-left: 0;'>
         <%= f.submit 'Составить маршрут', class: 'btn btn-primary pull-right', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
       </div>
 

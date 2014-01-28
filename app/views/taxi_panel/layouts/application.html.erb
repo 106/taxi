@@ -7,10 +7,10 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Exo+2:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class='taxi_panel'>
   <div class="navbar navbar-static-top navbar-inverse">
     <div class="navbar-inner">
-      <div class="container">
+      <div class="container taxi_container">
         <ul class="nav pull-left">
           <% if taxi_signed_in? %>
             <li><%= link_to 'Заказы', booked_orders_path %></li>
@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="container content">
+  <div class="container taxi_container content">
     <%if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>

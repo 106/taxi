@@ -22,8 +22,12 @@
       <%= f.label :porch, class: "span3 text-left" %>
       <%= f.text_field :porch, class: 'span5' %>
     </div>
-    <br>
-    <%= f.submit 'Составить маршрут', class: 'btn btn-primary pull-left', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
+    <div class="row-fluid">
+      <div class="span3"></div>
+      <div class="span5" style='margin-left: 0;'>
+        <%= f.submit 'Составить маршрут', class: 'btn btn-primary pull-right', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
+      </div>
+
+    </div>
   <% end %>
 </div>
-<br>

@@ -120,10 +120,15 @@ a.brand {
 }
 
 .footer {
-	height: 61px;
+	height: 20px;
 	padding: 20px 0;
-	background-color: #eee;
+	background-color: #3a4c5b;
 	border-top: 1px solid #ccc;
+}
+
+a.footer_link:hover {
+  color: white;
+
 }
 
 textarea {

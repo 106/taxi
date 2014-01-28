@@ -50,8 +50,10 @@
 
   <div class="footer">
     <div class="container">
-      <%= link_to "О нас", about_path %> |
-      <%= link_to "Партнерство", partners_path %>
+      <ul class="inline">
+        <li><%= link_to "О нас", about_path, class: 'footer_link' %></li>
+        <li><%= link_to "Партнерство", partners_path, class: 'footer_link' %></li>
+      </ul>
     </div>
   </div>
 

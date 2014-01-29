@@ -4,17 +4,15 @@ module TaxiPanel
 
     respond_to :js, :html
 
-    before_action :set_booked_order, only: [:show, :edit, :update, :destroy]
+    before_action :set_booked_order, only: [:update]
 
     def index
       @booked_orders = current_taxi.orders.where state: 'created'
     end
 
-    def show
-    end
-
     def update
-      if @booked_order.update_attributes booked_order_params
+      driver = Driver.find_by_number(params[:driver_name])
+      if @booked_order.update_attributes driver_id: driver.try(:id)
         @booked_order.driver_was_choosen if @booked_order.created? && @booked_order.driver_id.present?
       end
       redirect_to booked_orders_path
@@ -31,7 +29,7 @@ module TaxiPanel
     end
 
     def booked_order_params
-      params.require(:order).permit(:taxi_id, :user_id, :state, :cost, :driver_id, :user_phone, :comment)
+      params.require(:order).permit(:driver_name)
     end
 
   end

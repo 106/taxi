@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.hidden_field :taxi_id, value: current_taxi.id %>
   <div class="field">
     <%= f.label :number %><br>
     <%= f.text_field :number %>
@@ -23,11 +23,8 @@
     <%= f.label :car_naumber %><br>
     <%= f.text_field :car_naumber %>
   </div>
-  <div class="field">
-    <%= f.label :taxi_id %><br>
-    <%= f.number_field :taxi_id %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Сохранить", class: 'btn btn-primary' %>
   </div>
 <% end %>

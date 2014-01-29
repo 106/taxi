@@ -11,6 +11,17 @@ ru:
       taxi:
         email: 'Email'
         password: 'Пароль'
+        name: 'Название'
+        phone: "Номер телефона"
+        website: "Сайт"
+        default_price: Минимальная стоимость поездки
+        min_distance: Минимальное расстояние
+        price_for_km: Стоимость каждого последующего километра
+        city: Город
+      driver:
+        number: Позывной
+        car: Автомобиль
+        car_naumber: Гос. номер
   order:
     air_conditioning: 'Кондиционер'
     check: 'Чек'

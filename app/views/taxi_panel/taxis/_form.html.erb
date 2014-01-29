@@ -10,44 +10,46 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row-fluid">
+    <div class="span3">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="span3">
+      <%= f.label :city %>
+      <%= f.select :city, (City.all.map {|c| c.name}) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.phone_field :phone %>
+  <br>
+  <div class="row-fluid">
+    <div class="span3">
+      <%= f.label :phone %>
+      <%= f.phone_field :phone %>
+    </div>
+    <div class="span3">
+      <%= f.label :website %>
+      <%= f.text_field :website %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :website %><br>
-    <%= f.text_field :website %>
+  <br>
+  <div class="row-fluid">
+    <div class="span3">
+      <%= f.label :default_price %>
+      <%= f.text_field :default_price %>
+    </div>
+    <div class="span3">
+      <%= f.label :min_distance %>
+      <%= f.text_field :min_distance %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :default_price %><br>
-    <%= f.text_field :default_price %>
-  </div>
-  <div class="field">
-    <%= f.label :min_distance %><br>
-    <%= f.text_field :min_distance %>
-  </div>
-  <div class="field">
-    <%= f.label :price_for_km %><br>
-    <%= f.text_field :price_for_km %>
-  </div>
-  <div class="field">
-    <%= f.label :rank %><br>
-    <%= f.text_field :rank %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.select :city, (City.all.map {|c| c.name}) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <br>
+  <div class="row-fluid">
+    <div class="span3">
+      <%= f.label :price_for_km %>
+      <%= f.text_field :price_for_km %>
+    </div>
+    <div class="span3" style='padding-top: 3.2em'>
+      <%= f.submit "Сохранить", class: 'btn btn-primary pull-right' %>
+    </div>
   </div>
 <% end %>

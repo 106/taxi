@@ -20,7 +20,7 @@
         </ul>
         <ul class="nav pull-right" id="loginbar">
           <% if taxi_signed_in? %>
-            <li><%= link_to 'Мой профиль', current_taxi %></li>
+            <li><%= link_to 'Профиль службы такси', current_taxi %></li>
             <li><%= link_to 'Выход', destroy_taxi_session_path %></li>
           <% else %>
             <li><%= link_to "Вход", new_taxi_session_path %></li>

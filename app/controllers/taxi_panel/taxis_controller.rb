@@ -1,14 +1,13 @@
 module TaxiPanel
   class TaxisController < TaxiPanelApplicationController
-    before_filter :authenticate_taxi!, only: [:edit, :update, :destroy]
-    before_filter :use_only_your_profile, only: [:edit, :update, :destroy]
-    before_action :set_taxi, only: [:show, :edit, :update, :destroy]
-
-    def index
-      @taxis = Taxi.all
-    end
+    before_filter :authenticate_taxi!, only: [:edit, :update]
+    before_filter :use_only_your_profile, only: [:edit, :update]
+    before_action :set_taxi, only: [:show, :edit, :update]
 
     def show
+      month_start = Time.now.beginning_of_month
+      month_end = Time.now.end_of_month
+      @orders_for_current_month = Order.where(taxi_id: @taxi.id).where(created_at: month_start..month_end)
     end
 
     def edit
@@ -20,11 +19,6 @@ module TaxiPanel
       else
         render action: 'edit'
       end
-    end
-
-    def destroy
-      @taxi.destroy
-      redirect_to taxis_url
     end
 
     private

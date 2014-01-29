@@ -5,10 +5,7 @@ module TaxiPanel
     before_action :set_driver, only: [:show, :edit, :update, :destroy]
 
 	  def index
-	    @drivers = Driver.all
-	  end
-
-	  def show
+	    @drivers = current_taxi.drivers
 	  end
 
 	  def new
@@ -21,7 +18,7 @@ module TaxiPanel
 	  def create
 	    @driver = Driver.new(driver_params)
 	    if @driver.save
-	      redirect_to @driver, notice: 'Driver was successfully created.'
+	      redirect_to drivers_path
 	    else
 	      render action: 'new'
 	    end
@@ -29,7 +26,7 @@ module TaxiPanel
 
 	  def update
 	    if @driver.update(driver_params)
-	      redirect_to @driver, notice: 'Driver was successfully updated.'
+	      redirect_to drivers_path, notice: I18n.t('driver.were_updated')
 	    else
 	      render action: 'edit'
 	    end

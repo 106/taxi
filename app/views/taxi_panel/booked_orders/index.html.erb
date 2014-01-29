@@ -18,7 +18,7 @@
         <td><%= render 'orders/additional_conditions', order: booked_order%></td>
         <td>
           <%= form_for booked_order, :url=>"/taxi_panel/booked_orders/#{booked_order.id}" do |f| %>
-            <%= f.text_field :driver_id, class: 'span1' %>
+            <input id="driver_name" name='driver_name' type="text" class='span1' />
             <%= f.submit "Сохранить", class: 'btn btn-primary'  %>
           <% end %>
         </td>

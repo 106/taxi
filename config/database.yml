@@ -32,8 +32,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: dn_taxi_production
+  database: rails
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sockrails
+  username: rails
+  password: 6BHlHRqfED

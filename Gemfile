@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use mysql as the database for Active Record
-# gem 'mysql2'
-gem 'pg'
+gem 'mysql2'
+# gem 'pg'
 gem 'devise'
 gem "nokogiri", "~> 1.6.1"
 gem 'jquery-ui-rails'
@@ -20,6 +20,9 @@ gem 'httparty'
 gem 'quiet_assets'
 gem 'russian'
 gem 'pry-rails', :group => :development
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-unicorn'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'

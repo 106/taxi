@@ -3,7 +3,7 @@ lock '3.1.0'
 
 set :application, 'mytaxi.dn.ua'
 set :repo_url, 'https://github.com/106/taxi'
-set :deploy_to, '/srv/apps/mytaxi'
+set :deploy_to, '/home/rails'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }

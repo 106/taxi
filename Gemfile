@@ -21,8 +21,6 @@ gem 'quiet_assets'
 gem 'russian'
 gem 'pry-rails', :group => :development
 gem 'capistrano'
-gem 'capistrano-rails'
-gem 'capistrano-unicorn'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
@@ -40,6 +38,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'rails_12factor'
 
+group :development do
+	gem 'capistrano-rails'
+gem 'capistrano-unicorn'
+end
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

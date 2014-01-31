@@ -2,7 +2,7 @@
 lock '3.1.0'
 
 set :application, 'mytaxi.dn.ua'
-set :repo_url, 'https://github.com/106/taxi'
+set :repo_url, 'https://github.com/106/taxi.git'
 set :deploy_to, '/home/rails'
 
 # Default branch is :master

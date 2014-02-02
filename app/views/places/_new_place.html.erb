@@ -1,8 +1,8 @@
-<div class='errors'></div>
+<div class="place_errors"></div>
 <% if order.places.any? %>
-  <h4 class='red'> Добавьте следующий адрес на маршрут </h4>
+  <h4 class='blue'> Добавьте следующий адрес на маршрут </h4>
 <% else %>
-  <h4 class='red'>Куда подать машину?</h4>
+  <h4 class='blue'>Куда подать машину?</h4>
 <% end %>
 
 <div class="place<%=order.places.count %>">
@@ -12,22 +12,20 @@
     <%= f.hidden_field :uniq_id, value: Digest::SHA1.hexdigest((0...50).map { ('a'..'z').to_a[rand(26)] }.join + Time.now.to_s) %>
     <div class="row-fluid">
       <%= f.label :city_id, class: "span3 text-left" %>
-      <%= f.select :city_id, (City.all.map {|c| [c.name, c.id] }), {}, class: 'span7' %>
+      <%= f.select :city_id, (City.all.map {|c| [c.name, c.id] }), {}, class: 'span9' %>
     </div>
     <div class="row-fluid">
-      <%= f.label :address, class: "span3 text-left" %>
-      <%= f.text_field :address, class: 'span7', placeholder: 'Ленина, 1' %>
+      <%= f.label :address, class: "span3 text-left field_with_errors" %>
+      <%= f.text_field :address, class: 'span9'%>
     </div>
     <div class="row-fluid">
-      <%= f.label :porch, class: "span3 text-left" %>
-      <%= f.text_field :porch, class: 'span7' %>
-    </div>
-    <div class="row-fluid">
-      <div class="span3"></div>
-      <div class="span7" style='margin-left: 0;'>
-        <%= f.submit 'Составить маршрут', class: 'btn btn-primary pull-right', id: "add_to_route", title: 'Вы можете поехать в несколько мест добавляя их в раздел "Куда"' %>
+      <div class="span6 row-fluid">
+        <%= f.label :porch, class: "span6 text-left" %>
+        <%= f.text_field :porch, class: 'text-left span6' %>
       </div>
-
+      <div class="span6" style='margin-left: 0;'>
+        <%= f.submit 'Составить маршрут', class: 'btn btn-primary pull-right', id: "add_to_route", title: 'Вы можете поехать в несколько мест, добавляя их в раздел "Куда"' %>
+      </div>
     </div>
   <% end %>
 </div>

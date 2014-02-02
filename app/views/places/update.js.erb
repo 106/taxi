@@ -1,7 +1,8 @@
 $('#myModal_<%=@place.id%>').modal('hide');
+$('#your_route').html("<%=e render 'places/route', :places => @place.order.places %>")
 setTimeout('updateRoute()', "2000")
 
 function updateRoute() {
-	$('#your_route').html("<%=e render 'route', :places => @place.order.places %>");
+	$('.map_view').html("<%=e render 'orders/map', :order => @place.order %>");
 }
 

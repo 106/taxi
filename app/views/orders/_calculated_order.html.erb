@@ -24,7 +24,6 @@
       </div>
       <div class="row-fluid">
         <div class="span12">
-          <div id="map" style="width:100%; height:300px"></div>
         </div>
       </div>
     </div>
@@ -50,53 +49,6 @@
           <%= f.submit 'Заказать', class: "btn btn-danger submit pull-right" %>
         </div>
       </div>
-      <hr>
-      <%= render 'order_info' %>
     </div>
   </div>
 <%end%>
-
-
-
-<script type="text/javascript">
-
-
-
-ymaps.ready(init);
-
-function init() {
-    var myMap = new ymaps.Map("map", {
-            center: <%= [@order.places.first.latitude, @order.places.first.longitude] %>,
-            zoom: 13
-        });
-
-    ymaps.route(<%= @order.places.map {|p| [p.latitude, p.longitude]}%>
-    ).then(function (route) {
-        myMap.geoObjects.add(route);
-        var points = route.getWayPoints(),
-            lastPoint = points.getLength() - 1;
-        points.options.set('preset', 'twirl#redStretchyIcon');
-        points.get(0).properties.set('iconContent', 'Точка отправления');
-        points.get(lastPoint).properties.set('iconContent', 'Точка прибытия');
-        var moveList = 'Трогаемся,</br>',
-            way,
-            segments,
-            route_length;
-        for (var i = 0; i < route.getPaths().getLength(); i++) {
-            way = route.getPaths().get(i);
-            segments = way.getSegments();
-            for (var j = 0; j < segments.length; j++) {
-                var street = segments[j].getStreet();
-                moveList += ('Едем ' + segments[j].getHumanAction() + (street ? ' на ' + street : '') + ', проезжаем ' + segments[j].getLength() + ' м.,');
-                moveList += '</br>'
-            }
-        }
-        moveList += 'Останавливаемся.';
-        // alert(route.getLength())
-        $('#list').append(moveList);
-    }, function (error) {
-        alert('Возникла ошибка: ' + error.message);
-    });
-}
-
-</script>

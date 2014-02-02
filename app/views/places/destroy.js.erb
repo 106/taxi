@@ -1,5 +1,6 @@
 <% if @order.places.any? %>
   $('#your_route').html("<%=e render 'route', :places => @order.places %>");
+  $('.map_view').html("<%=e render 'orders/map', :order => @order %>");
 <% else %>
   $('#your_route').html("");
 <% end %>

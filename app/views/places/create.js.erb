@@ -1,12 +1,11 @@
 <% unless @place.errors.present? %>
 	$('.place<%="#{@place.order.places.count-1}"%>').hide();
 	$('#your_route').html("<%=e render 'route', :places => @place.order.places %>")
-	if ($("input#order_by_count").val() === 'false') {
-	  $('.route').html("<%=e render 'new_place', :place => Place.new, :order => @place.order %>");
-	}
+	$('.route').html("<%=e render 'new_place', :place => Place.new, :order => @place.order %>");
+  $(".map_view").html("<%=e render 'orders/map', order: @place.order %>")
+<% else %>
+   $('.place_errors').html('<%=e render "place_errors", errors: @place.errors.full_messages %>')	
 <% end %>
-
-
 
 var city_id = $("#place_city_id").val();
 $("#place_address").autocomplete({

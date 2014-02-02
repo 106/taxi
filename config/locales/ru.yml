@@ -2,9 +2,9 @@ ru:
   activerecord:
     attributes:
       place:
-        city_id: 'Город:'
-        address: 'Адрес:'
-        porch: 'Подъезд:'
+        city_id: 'Город'
+        address: 'Адрес'
+        porch: 'Подъезд'
       order:
         user_phone: "Телефон:"
         comment: "Комментарий:"

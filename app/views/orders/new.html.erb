@@ -1,6 +1,15 @@
+<div class="errors">
+  <ul class="unstyled"></ul>
+</div>
 <div class="row-fluid">
-
+  
   <div class="span6">
+    
+    <div id='your_route'>
+      <% if @order.places.any? %>
+        <%= render 'places/route', :places => @order.places %>
+      <% end %>
+    </div>
     <div class="route">
       <% unless @order.by_count %>
         <%= render 'places/new_place', :place => Place.new, :order => @order %>
@@ -9,63 +18,52 @@
     <%= form_for(@order, :html => {:class => "form-horizontal"}) do |f| %>
       <%= f.hidden_field :by_count %>
       <%= f.hidden_field :distance %>
-      <h4 class='red'>Дополнительные услуги</h4>
-        <table class="table">
-          <tr>
-            <td>
-              <label class="checkbox">
-                <%= f.check_box :vip %><%= t('order.vip')%>
-              </label>
-            </td>
-            <td>
-              <label class="checkbox">
-                <%= f.check_box :air_conditioning %><%= t('order.air_conditioning')%>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label class="checkbox">
-                <%= f.check_box :animals %><%= t('order.animals')%>
-              </label>
-            </td>
-            <td>
-              <label class="checkbox">
-                <%= f.check_box :check %><%= t('order.check')%>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label class="checkbox">
-                <%= f.check_box :minivan %><%= t('order.minivan')%>
-              </label>
-            </td>
-            <td>
-              <label class="checkbox">
-                <%= f.check_box :out_of_town %><%= t('order.out_of_town')%>
-              </label>
-            </td>
-          </tr>
-        </table>
-        <div style='margin-bottom: 5em;'>
-          <%= f.submit t('order.calculate'), class: "btn btn-danger submit pull-left" %>
+      <h4 class='blue'>Дополнительные услуги</h4>
+      <div class="row-fluid">
+        <div class="span6">
+          <label class="checkbox">
+            <%= f.check_box :vip %><%= t('order.vip')%>
+          </label>
         </div>
+        <div class="span6">
+          <label class="checkbox">
+            <%= f.check_box :air_conditioning %><%= t('order.air_conditioning')%>
+          </label>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <label class="checkbox">
+            <%= f.check_box :animals %><%= t('order.animals')%>
+          </label>
+        </div>
+        <div class="span6">
+          <label class="checkbox">
+            <%= f.check_box :check %><%= t('order.check')%>
+          </label>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <label class="checkbox">
+            <%= f.check_box :minivan %><%= t('order.minivan')%>
+          </label>
+        </div>
+        <div class="span6">
+          <label class="checkbox">
+            <%= f.check_box :out_of_town %><%= t('order.out_of_town')%>
+          </label>
+        </div>
+      </div>
+      <div style='margin-bottom: 5em;'>
+        <%= f.submit t('order.calculate'), class: "btn btn-danger submit pull-left" %>
+      </div>
       <% end %>
   </div>
 
-  <div class="span6">
-    <div class="errors">
-      <ul>
-        <% @order.errors.full_messages.each do |e| %>
-          <li><%= " #{e}" %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div id='your_route'>
-      <% if @order.places.any? %>
-        <%= render 'places/route', :places => @order.places %>
-      <% end %>
-    </div>
+  <div class="span6 map_view">
+    <%= render 'map', order: @order %>
   </div>
 </div>
+
+

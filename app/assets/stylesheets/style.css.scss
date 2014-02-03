@@ -5,7 +5,7 @@ body {
 }
 
 body.taxi_panel {
-	background: #e6e6fa;
+  background: linear-gradient(to top, #FFFFFF, #d7dbe0) no-repeat;
 }
 
 body, html {
@@ -36,6 +36,12 @@ body, html {
 	font-weight: 100;
 	background: linear-gradient(to right, #3a4c5b, #0066aa);
 	color: white;
+}
+
+.taxi_grey a {
+	background: #dfdfdf !important;
+	color: #06a !important;
+	font-size: 1.2em;
 }
 
 .top-navigation {

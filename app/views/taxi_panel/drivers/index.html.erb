@@ -1,12 +1,11 @@
 <div class="row-fluid">
-  <div class="span5 offset3">
-    <h1>Водители</h1>
-
+<div class="offset2 span8 well">
 <table class='table'>
   <thead>
     <tr>
       <th>Позывной</th>
       <th>Автомобиль</th>
+      <th>Цвет</th>
       <th>Гос. номер</th>
       <th></th>
       <th></th>
@@ -18,9 +17,10 @@
       <tr>
         <td><%= driver.number %></td>
         <td><%= driver.car %></td>
+        <td><%= driver.car_color %></td>
         <td><%= driver.car_naumber %></td>
         <td><%= link_to 'Редактировать', edit_driver_path(driver), class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Удалить', driver, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Удалить', driver, class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены, что хотите удалить водителя из списка?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,7 +29,5 @@
 <br>
 
 <%= link_to 'Добавить водителя', new_driver_path, class: 'btn btn-primary' %>
-
-
-  </div>
+</div>
 </div>

@@ -1,28 +1,27 @@
-<h2>Новые заказы</h2>
-<div class='well'>
-  <table class='table'>
-  	<tr>
-      <th>Время заказа</th>
-  		<th>Адрес</th>
-      <th>Телефон</th>
-      <th>Комментарий</th>
-      <th>Доп. условия</th>
-      <th>Водитель</th>
-  	</tr>
-    <% @booked_orders.each do |booked_order| %>
-      <tr>
-        <td><%=l(booked_order.created_at, format: :short)%></td>
-        <td><%= booked_order.from.human_address %></td>
-        <td><%= booked_order.user_phone %></td>
-        <td><%= booked_order.comment %></td>
-        <td><%= render 'orders/additional_conditions', order: booked_order%></td>
-        <td>
-          <%= form_for booked_order, :url=>"/taxi_panel/booked_orders/#{booked_order.id}" do |f| %>
-            <input id="driver_name" name='driver_name' type="text" class='span1' />
-            <%= f.submit "Сохранить", class: 'btn btn-primary'  %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+<table class='table table-bordered table-hover'>
+  <thead>
+	<tr style='background: white;'>
+    <th>Время заказа</th>
+		<th>Адрес</th>
+    <th>Телефон</th>
+    <th>Комментарий</th>
+    <th>Доп. условия</th>
+    <th>Водитель</th>
+	</tr>
+  </thead>
+  <% @booked_orders.each do |booked_order| %>
+    <tr>
+      <td><%=l(booked_order.created_at, format: :short)%></td>
+      <td><%= booked_order.from.human_address %></td>
+      <td><%= booked_order.user_phone %></td>
+      <td><%= booked_order.comment %></td>
+      <td><%= render 'orders/additional_conditions', order: booked_order%></td>
+      <td>
+        <%= form_for booked_order, :url=>"/taxi_panel/booked_orders/#{booked_order.id}" do |f| %>
+          <input id="driver_name" name='driver_name' type="text" class='span1' />
+          <%= f.submit "Сохранить", class: 'btn btn-primary'  %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

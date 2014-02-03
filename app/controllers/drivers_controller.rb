@@ -43,6 +43,6 @@ class DriversController < ApplicationController
     end
 
     def driver_params
-      params.require(:driver).permit(:number, :car, :car_naumber, :taxi_id)
+      params.require(:driver).permit(:number, :car, :car_naumber, :taxi_id, :car_color)
     end
 end

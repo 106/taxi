@@ -16,12 +16,13 @@ ru:
         website: "Сайт"
         default_price: Минимальная стоимость поездки
         min_distance: Минимальное расстояние
-        price_for_km: Стоимость каждого последующего километра
+        price_for_km: Стоимость за километр
         city: Город
       driver:
         number: Позывной
         car: Автомобиль
         car_naumber: Гос. номер
+        car_color: Цвет
   order:
     air_conditioning: 'Кондиционер'
     check: 'Чек'

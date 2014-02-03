@@ -6,37 +6,38 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Exo+2:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body class='taxi_panel'>
-  <div class="navbar navbar-static-top navbar-inverse">
-    <div class="navbar-inner">
-      <div class="container taxi_container">
-        <ul class="nav pull-left">
-          <% if taxi_signed_in? %>
-            <li><%= link_to 'Заказы', booked_orders_path %></li>
-            <li><%= link_to 'Водители', drivers_path %></li>
-            <li><%= link_to 'Старые заказы', old_orders_path %></li>
+  <div class="brand-stripe-wrapper" style='margin-bottom: -15px;'>
+      <div class='brand_stripe'>
+        <div class="container">
+          <ul class="pull-right unstyled top-navigation" id="loginbar">
+            <% if taxi_signed_in? %>
+              <li><%= link_to 'Выход', destroy_taxi_session_path %></li>
+            <% end %>
+          </ul>
+          <%= link_to root_path, class: 'brand' do %>
+            <span>My</span>taxi.dn.ua
           <% end %>
-        </ul>
-        <ul class="nav pull-right" id="loginbar">
-          <% if taxi_signed_in? %>
-            <li><%= link_to 'Профиль службы такси', current_taxi %></li>
-            <li><%= link_to 'Выход', destroy_taxi_session_path %></li>
-          <% else %>
-            <li><%= link_to "Вход", new_taxi_session_path %></li>
-            <li><%= link_to "Регистрация", new_taxi_registration_path %></li>
-          <% end %>
-        </ul>
+        </div>
       </div>
     </div>
-  </div>
+    <ul class="nav nav-tabs" style='background: white'>
+      <li class="<%= 'active taxi_grey' if (controller_name == 'booked_orders' && action_name == 'index')%>"><%= link_to 'Заказы', booked_orders_path %></li>
+      <li class="<%= 'active taxi_grey' if (controller_name == 'drivers' && action_name == 'index')%>"><%= link_to 'Водители', drivers_path %></li>
+      <li class="<%= 'active taxi_grey' if (controller_name == 'booked_orders' && action_name == 'old_orders')%>"><%= link_to 'Архив', old_orders_path %></li>
+      <li class="<%= 'active taxi_grey' if (controller_name == 'taxis' && action_name == 'show')%>"><%= link_to 'Профиль', current_taxi %></li>
+    </ul>
   <div class="container taxi_container content">
+    
     <%if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
     <%if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
+
     <%= yield %>
   </div>
 </body>

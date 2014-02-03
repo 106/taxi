@@ -1,24 +1,22 @@
-<h2>Старые заказы</h2>
-<div class='well'>
-  <table class='table'>
-  	<tr>
+<table class='table table-bordered table-hover'>
+	<thead>
+    <tr style='background: white;'>
       <th>Время заказа</th>
-  		<th>Адрес</th>
+      <th>Адрес</th>
       <th>Телефон</th>
       <th>Комментарий</th>
       <th>Доп. условия</th>
       <th>Водитель</th>
-      <th></th>
-  	</tr>
-    <% @booked_orders.each do |booked_order| %>
-      <tr>
-        <td><%=l(booked_order.created_at, format: :short)%></td>
-        <td><%= booked_order.from.human_address %></td>
-        <td><%= booked_order.user_phone %></td>
-        <td><%= booked_order.comment %></td>
-        <td><%= render 'orders/additional_conditions', order: booked_order%></td>
-        <td><%= booked_order.driver.number %></td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+    </tr>
+  </thead>
+  <% @booked_orders.reverse.each do |booked_order| %>
+    <tr>
+      <td><%=l(booked_order.created_at, format: :short)%></td>
+      <td><%= booked_order.from.human_address %></td>
+      <td><%= booked_order.user_phone %></td>
+      <td><%= booked_order.comment %></td>
+      <td><%= render 'orders/additional_conditions', order: booked_order%></td>
+      <td><%= booked_order.driver.number %></td>
+    </tr>
+  <% end %>
+</table>

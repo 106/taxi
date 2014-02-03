@@ -4,7 +4,10 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :places
 
-  validates :user_phone, presence: true, :on => :update, if: :phone_required?
+  validates :user_phone, presence: true, 
+                         numericality: { only_integer: true },
+                         length: { is: 10 },
+                         :on => :update, if: :phone_required?
   validate :at_least_one_address, on: :update
 
 	state_machine :state, initial: :pending do

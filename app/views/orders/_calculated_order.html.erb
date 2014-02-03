@@ -33,7 +33,7 @@
           <%= f.label :comment, class: "order blue" %>
         </div>
         <div class="span9">
-          <%= f.text_area :comment, class: 'span12', rows: '5', placeholder: "Здесь Вы можете уточнить месторасположение точки отправления" %>
+          <%= f.text_area :comment, class: 'span12', rows: '5', placeholder: "Примечание как подъехать" %>
         </div>
       </div>
       <br>
@@ -44,7 +44,7 @@
         <div class="span9">
           <div class="input-prepend phone">
             <span class="add-on">+38</span>
-            <%= f.text_field :user_phone, class: 'input-small' %>
+            <%= f.text_field :user_phone, class: 'input-small', placeholder: '(050)1234567' %>
           </div>
           <%= f.submit 'Заказать', class: "btn btn-danger submit pull-right" %>
         </div>

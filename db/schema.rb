@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121201131) do
+ActiveRecord::Schema.define(version: 20140202213803) do
 
   create_table "cities", force: true do |t|
     t.string "name"
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20140121201131) do
     t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",  null: false
+    t.string   "encrypted_password",     default: "",  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -97,6 +97,18 @@ ActiveRecord::Schema.define(version: 20140121201131) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.float    "min_distance"
+    t.boolean  "animals"
+    t.boolean  "air_conditioning"
+    t.boolean  "vip"
+    t.boolean  "minivan"
+    t.boolean  "out_of_town"
+    t.boolean  "check"
+    t.float    "animals_price",          default: 0.0
+    t.float    "air_conditioning_price", default: 0.0
+    t.float    "vip_price",              default: 0.0
+    t.float    "minivan_price",          default: 0.0
+    t.float    "out_of_town_price",      default: 0.0
+    t.float    "check_price",            default: 0.0
   end
 
   add_index "taxis", ["email"], name: "index_taxis_on_email", unique: true, using: :btree

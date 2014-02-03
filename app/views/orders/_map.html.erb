@@ -31,11 +31,13 @@ function init() {
             }
         }
         moveList += 'Останавливаемся.';
-        $('#order_distance').text(route.getLength()/1000)
+        $('#current_order_distance').text(Math.round(route.getLength()/100)/10);
+        $('#order_distance').val(route.getLength());
     }, function (error) {
         alert('Возникла ошибка: ' + error.message);
     });
 }
 </script>
+
 
 

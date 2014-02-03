@@ -19,5 +19,9 @@ DnTaxi::Application.routes.draw do
     resources :drivers
   end
 
+  constraints subdomain: 'www' do
+    get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
+  end
+
   root 'orders#new'
 end

@@ -27,7 +27,7 @@ module TaxiPanel
       end
 
       def taxi_params
-        params.require(:taxi).permit(:name, :phone, :website, :default_price, :price_for_km, :rank, :description, :city, :min_distance)
+        params.require(:taxi).permit(:name, :phone, :website, :default_price, :price_for_km, :city, :min_distance, :check, :animals, :air_conditioning, :vip, :minivan, :out_of_town, :check_price, :animals_price, :air_conditioning_price, :vip_price, :minivan_price, :out_of_town_price)
       end
 
       def use_only_your_profile

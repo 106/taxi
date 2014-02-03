@@ -6,7 +6,9 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @taxis = Taxi.where(:city => @order.places.first.city.name) if @order.calculated?
+    if @order.calculated?
+      @taxis = Taxi.where(:city => @order.places.first.city.name).select {|taxi| (taxi.additional & @order.additional).size == @order.additional.size }
+    end
   end
 
   def new
@@ -48,7 +50,7 @@ class OrdersController < ApplicationController
     end
 
     def create_it
-      @order.update_attributes cost: @order.taxi.cost_for_distance(@order.human_distance)
+      @order.update_attributes cost: @order.taxi.cost_for_distance(@order.human_distance)#, distance: ''
       @order.taxi_was_choosen
     end
 

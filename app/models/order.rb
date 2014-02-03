@@ -41,6 +41,16 @@ class Order < ActiveRecord::Base
     self.places.first
   end
 
+  def additional
+    { vip: self.vip,
+      animals: self.animals,
+      air_conditioning: self.air_conditioning,
+      minivan: self.minivan,
+      out_of_town: self.out_of_town,
+      check: self.check
+    }.select {|k, v| !!v}.keys
+  end
+
   private
 
   def phone_required?

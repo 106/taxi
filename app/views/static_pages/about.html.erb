@@ -9,16 +9,18 @@
 <div class="row-fluid">
 <div class="span6 well">
   <h3 class='blue'>О нас</h3>
-  <hr>
-  <h3 class='blue'>Контакты</h3>
   <ul class='inline'>
-    <li><span class='red'>Email:</span></li>
+    <li><span class='blue'>Email:</span></li>
     <li>mytaxi@dn.ua</li>
   </ul>
   <ul class='inline'>
-    <li><span class='red'>Телефон:</span></li>
+    <li><span class='blue'>Тел.:</span></li>
     <li>+38-050-907-65-56</li>
   </ul>
+  <p>Сервис онлайн заказа <%= link_to 'Mytaxi.dn.ua', root_path, class: 'red'%> 
+  создан для комфортного вызова такси.
+  Здесь вы можете составить маршрут вашей поездки, поочередно указывая адреса от подачи машины до пункта назначения. Стоимость, правильно составленного заказа, со всеми указанными необходимыми услугами, будет рассчитана сразу для нескольких служб такси, среди которых вы сможете выбрать наиболее подходящую по ценовой категории. После чего заказ попадет оператору, который в течение 15 минут подберет для вас автомобиль. Далее с вами свяжутся и сообщат модель, цвет и номер автомобиля, который поедет по вашему заказу. </p>
+  <h5 class='blue'>Хорошего пути!</h5>
 </div>
 
 <div class="span6 well">
@@ -29,7 +31,7 @@
     <%= f.label :phone %>
     <%= f.phone_field :phone %>
     <%= f.label :comment %>
-    <%= f.text_area :comment %><br>
+    <%= f.text_area :comment %><br><br>
     <%= f.submit "Оставить отзыв", class: 'btn btn-primary'%>
   <% end %>
 </div>

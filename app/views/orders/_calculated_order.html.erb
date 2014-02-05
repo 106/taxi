@@ -16,7 +16,7 @@
                 <%= "+38#{taxi.phone}"%>
               </td>
               <td>
-                <% if @order.by_count %> от <% end %> <%= taxi.cost_for_distance(@order.human_distance) %> грн.
+                <% if @order.by_town %> от <% end %> <%= taxi.cost_for_distance(@order) %> грн.
               </td>
             </tr>
           <% end %>

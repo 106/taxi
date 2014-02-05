@@ -19,12 +19,9 @@
       <% end %>
     </div>
     <div class="route">
-      <% unless @order.by_count %>
-        <%= render 'places/new_place', :place => Place.new, :order => @order %>
-      <% end %>
+      <%= render 'places/new_place', :place => Place.new, :order => @order %>
     </div>
     <%= form_for(@order, :html => {:class => "form-horizontal"}) do |f| %>
-      <%= f.hidden_field :by_count %>
       <%= f.hidden_field :distance %>
       <h4 class='blue'>Дополнительные услуги</h4>
       <div class="row-fluid">
@@ -71,6 +68,7 @@
 
   <div class="span6 map_view">
     <%= render 'map', order: @order %>
+    <p>*Если адрес на карте отличается от реального, то уточните его в графе "Примечание."</p>
   </div>
 </div>
 

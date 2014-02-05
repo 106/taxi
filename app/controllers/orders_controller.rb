@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     end
 
     def create_it
-      @order.update_attributes cost: @order.taxi.cost_for_distance(@order.human_distance)#, distance: ''
+      @order.update_attributes cost: @order.taxi.cost_for_distance(@order)#, distance: ''
       @order.taxi_was_choosen
     end
 
@@ -59,6 +59,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:animals, :distance, :air_conditioning, :vip, :minivan, :out_of_town, :taxi_id, :user_id, :state, :driver_id, :user_phone, :comment, :by_count, :check)
+      params.require(:order).permit(:animals, :distance, :air_conditioning, :vip, :minivan, :out_of_town, :taxi_id, :user_id, :state, :driver_id, :user_phone, :comment, :check)
     end
 end

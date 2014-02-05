@@ -1,24 +1,35 @@
-<div class="well container">
-  <h3 class="pull-right blue">  <%= @taxi.city %></h3>
-	<h2 class='red'>"<%= @taxi.name %>"</h2>
-  <hr>
-  <h3 class="blue">Контактны данные</h3>
-    <p><span>Телефон:</span> <span class='red'><%= @taxi.phone %></span></p>
-    <p><span>Сайт:</span> <span class="red"><%= @taxi.website %></span></p>
-  </ul>
-  <hr>
-  <h3 class="blue">Прейскурант</h3>
-  <p><span>Минимальная стоимость поездки:</span> <span class='red'><%= @taxi.default_price %> грн.</span></p>
-  <p><span>Минимальное расстояние:</span> <span class='red'><%= @taxi.min_distance %> км</span></p>
-  <p><span>Стоимость каждого последующего километра:</span> <span class='red'><%= @taxi.price_for_km %> грн.</span></p>
-  <hr>
-  <h3 class="blue">Общая информация</h3>
-  <p><span>Количество водителей:</span> <span class='red'><%= @taxi.drivers.count %></span></p>
-  <h4>Обработанных заказов:</h4>
-    <p>За текущий месяц: <span class='red'><%= @orders_for_current_month.count %></span></p>
-    <p>Всего: <span class='red'><%= @taxi.orders.count %></span></p>
-  <hr>
+<div class="container">
+  <div class="well">
+    <h3 class="pull-right blue">  <%= @taxi.city %></h3>
+	  <h2 class='red'>"<%= @taxi.name %>"</h2>
+    <p><span>Телефон:</span> <span class='blue'><%= @taxi.phone %></span></p>
+    <p><span>Сайт:</span> <span class="blue"><%= @taxi.website %></span></p>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span7 well">
+      <h3 class="blue">Прейскурант</h3>
+      <p><span>Минимальная стоимость поездки:</span> <span class='red'><%= @taxi.default_price %> грн.</span></p>
+      <p><span>Минимальное расстояние:</span> <span class='red'><%= @taxi.min_distance %> км</span></p>
+      <p><span>Стоимость каждого последующего километра:</span> <span class='red'><%= @taxi.price_for_km %> грн.</span></p>
+      <h4>Дополнительные услуги</h4>
+      <%= render 'orders/additional_conditions', order: @taxi%>
+    </div>
+    <div class="span5 well">
+      <h3 class="blue">Общая информация</h3>
+      <p><span>Количество водителей:</span> <span class='red'><%= @taxi.drivers.count %></span></p>
+      <h4>Обработанных заказов:</h4>
+        <p>За текущий месяц: <span class='red'><%= @orders_for_current_month.count %></span></p>
+        <p>Всего: <span class='red'><%= @taxi.orders.count %></span></p>
+        <br>
+        <br><br>
+    </div>
+    <br>
   <%= link_to 'Редактировать', edit_taxi_path(@taxi), class: 'btn btn-primary pull-right' %>
+
+  </div>
+</div>
+  
 </div>
 
 

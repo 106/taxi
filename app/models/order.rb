@@ -53,6 +53,10 @@ class Order < ActiveRecord::Base
     }.select {|k, v| !!v}.keys
   end
 
+  def by_town
+    self.places.count == 1 
+  end
+
   private
 
   def phone_required?

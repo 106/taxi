@@ -4,6 +4,8 @@
       <th>Время заказа</th>
       <th>Адрес</th>
       <th>Телефон</th>
+      <th>Стоимость</th>
+      <th>Расстояние</th>
       <th>Комментарий</th>
       <th>Доп. условия</th>
       <th>Водитель</th>
@@ -14,6 +16,8 @@
       <td><%=l(booked_order.created_at, format: :short)%></td>
       <td><%= booked_order.from.human_address %></td>
       <td><%= booked_order.user_phone %></td>
+      <td><%= booked_order.by_town ? "от" : ''%> <%=booked_order.cost %>грн.</td>
+      <td><%= booked_order.by_town ? 'По городу' : "#{booked_order.human_distance} км" %></td>
       <td><%= booked_order.comment %></td>
       <td><%= render 'orders/additional_conditions', order: booked_order%></td>
       <td><%= booked_order.driver.number %></td>

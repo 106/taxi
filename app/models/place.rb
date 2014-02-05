@@ -9,7 +9,7 @@ class Place < ActiveRecord::Base
 	before_save :set_cords
 
 	def get_address
-		"#{formated('Ukraine')},+#{formated(self.city.name)},+#{formated(self.address)}"
+		"#{formated('Украина')},+#{formated(self.city.name)},+#{formated(self.address)}"
 	end
 
 	def human_address
@@ -20,8 +20,7 @@ class Place < ActiveRecord::Base
 	private
 
 	def formated str
-		Russian.translit(str).split.join('+')
-		# str.split.join('+')
+		str.split.join('+')
 	end
 
 	def set_cords

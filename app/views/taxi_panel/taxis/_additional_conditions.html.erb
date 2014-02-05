@@ -1,0 +1,8 @@
+<ul>
+  <% if taxi.vip %><li><%= t("order.vip") %>: <span class='red'><%= taxi.vip_price%> грн.</span></li><% end%>
+  <% if taxi.air_conditioning %><li><%= t("order.air_conditioning") %>: <span class='red'><%= taxi.air_conditioning_price%> грн.</span></li><% end%>
+  <% if taxi.animals %><li><%= t("order.animals") %><span class='red'>: <%= taxi.animals_price%> грн.</span></li><% end%>
+  <% if taxi.minivan %><li><%= t("order.minivan") %><span class='red'>: <%= taxi.minivan_price%> грн.</span></li><% end%>
+  <% if taxi.out_of_town %><li><%= t("order.out_of_town") %>: <span class='red'><%= taxi.out_of_town_price%> грн.</span></li><% end%>
+  <% if taxi.check %><li><%= t("order.check") %>: <span class='red'><%= taxi.check_price%> грн.</span></li><% end%>
+</ul>

@@ -13,7 +13,7 @@
       <p><span>Минимальное расстояние:</span> <span class='red'><%= @taxi.min_distance %> км</span></p>
       <p><span>Стоимость каждого последующего километра:</span> <span class='red'><%= @taxi.price_for_km %> грн.</span></p>
       <h4>Дополнительные услуги</h4>
-      <%= render 'orders/additional_conditions', order: @taxi%>
+      <%= render 'taxis/additional_conditions', taxi: @taxi%>
     </div>
     <div class="span5 well">
       <h3 class="blue">Общая информация</h3>

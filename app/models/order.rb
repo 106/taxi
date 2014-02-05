@@ -5,7 +5,6 @@ class Order < ActiveRecord::Base
   has_many :places
 
   validates :user_phone, presence: true, 
-                         numericality: { only_integer: true },
                          length: { is: 10 },
                          :on => :update, if: :phone_required?
   validate :at_least_one_address, on: :update
@@ -61,7 +60,7 @@ class Order < ActiveRecord::Base
   end
 
   def at_least_one_address
-    errors.add(:order, I18n.t('order.errors.one_address')) if self.places.empty?
+    errors.add(:for_order, I18n.t('order.errors.one_address')) if self.places.empty?
   end
 
 end

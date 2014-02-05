@@ -6,32 +6,17 @@
   <%= stylesheet_link_tag "application", media: "all"%>
   <%= csrf_meta_tags %>
   <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
-  <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
   <link href='http://fonts.googleapis.com/css?family=Exo+2:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-<!--   <div class="navbar navbar-static-top">
-    <div class="navbar-inner">
-        <ul class="nav pull-right" id="loginbar">
-          <li class='nav_item'><%= link_to 'Новый заказ', root_path %></li>
-          <% if user_signed_in? %>
-            <li class='nav_item'><%= link_to 'Мой профиль', current_user %></li>
-            <li class='nav_item'><%= link_to 'Выход', destroy_user_session_path %></li>
-          <% else %>
-            <li class='nav_item'><%= link_to "Вход", new_user_session_path %></li>
-            <li class='nav_item'><%= link_to "Регистрация", new_user_registration_path %></li>
-          <% end %>
-        </ul>
-    </div>
-  </div> -->
-
   <div id="main">
     <div class="brand-stripe-wrapper">
       <div class='brand_stripe'>
         <div class="container">
           <ul class="pull-right unstyled top-navigation" id="loginbar">
+            <li><%= link_to "О нас", about_path %></li>
+            <li><%= link_to "Партнерство", partners_path %></li>
             <li><%= link_to 'Новый заказ', root_path %></li>
           </ul>
           <%= link_to root_path, class: 'brand' do %>
@@ -45,18 +30,9 @@
       <%= yield %>
     </div>
 
-    <div class="push"></div>
   </div>
 
-  <div class="footer">
-    <div class="container">
-      <ul class="inline">
-        <li><%= link_to "О нас", about_path, class: 'footer_link' %></li>
-        <li><%= link_to "Партнерство", partners_path, class: 'footer_link' %></li>
-      </ul>
-    </div>
-  </div>
-
+  
   <%= javascript_include_tag "application" %>
 </body>
 </html>

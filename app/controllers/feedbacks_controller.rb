@@ -18,9 +18,9 @@
   def create
     @feedback = Feedback.new(feedback_params)
     if @feedback.save
-      redirect_to @feedback, notice: 'Feedback was successfully created.'
+      redirect_to about_path, notice: 'Feedback was successfully created.'
     else
-      render action: 'new'
+      redirect_to about_path, alert: @feedback.errors.full_messages
     end
   end
 
@@ -43,6 +43,6 @@
     end
 
     def feedback_params
-      params.require(:feedback).permit(:user_id, :taxi_id, :rank, :comment)
+      params.require(:feedback).permit(:user_id, :taxi_id, :rank, :comment, :email, :phone)
     end
 end

@@ -1,6 +1,14 @@
-<div class="errors">
-  <ul class="unstyled"></ul>
+<% if @order.errors.any? %>
+<div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <ul class='unstyled'>
+    <% @order.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
 </div>
+<% end %>
+
 <div class="row-fluid">
   
   <div class="span6">

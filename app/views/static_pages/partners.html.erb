@@ -1,11 +1,24 @@
-<div class="well">
-  <h2 class='red' >Наши партнеры</h2>
-  <ul>
-		<% @taxis.each do |taxi| %>
-		  <li>
-		  	<%= taxi.name %>
-		  </li>
-		<% end %>
-	</ul>
+<div class="row-fluid ">
+  <div class="span7 well">
+    <h3 class='blue' >Наши партнеры</h3>
+    <% @taxis.each do |taxi| %>
+      <div class="row-fluid ">
+        <div class="span4"><%= taxi.name %></div>
+        <div class="span4"><%= taxi.phone %></div>
+        <div class="span4"><%= taxi.website %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="span5 well">
+    <h3 class='blue'>Стать партнером</h3>
+    <p>Свяжитесь с нами, чтобы стать нашим партнером:</p>
+    <ul class="unstyled">
+      <li><span class='blue'>Телефон: </span> +38-050-907-65-56</li>
+      <li><span class='blue'>Email: </span>perkinpv@mail.ru</li>
+    </ul>
+  </div>
+  
+  
 	<%= link_to 'Присоединиться', new_taxi_registration_path, class: 'pull-right' %>
 </div>

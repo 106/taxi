@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
       redirect_to @order, notice: 'Order was successfully updated.'
     else
       render action: 'new' if @order.pending?
-      redirect_to @order if @order.calculated?
+      redirect_to @order, alert: @order.errors.full_messages.join(". ") if @order.calculated?
     end
   end
 

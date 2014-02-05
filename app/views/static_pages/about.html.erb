@@ -1,0 +1,36 @@
+<% if notice.present? %>
+<%= notice %>
+<% end %>
+<% if alert.present? %>
+  <div class="alert alert-error">
+    <%= alert.join(". ") %>
+  </div>
+<% end %>
+<div class="row-fluid">
+<div class="span6 well">
+  <h3 class='blue'>О нас</h3>
+  <hr>
+  <h3 class='blue'>Контакты</h3>
+  <ul class='inline'>
+    <li><span class='red'>Email:</span></li>
+    <li>mytaxi@dn.ua</li>
+  </ul>
+  <ul class='inline'>
+    <li><span class='red'>Телефон:</span></li>
+    <li>+38-050-907-65-56</li>
+  </ul>
+</div>
+
+<div class="span6 well">
+  <h3 class='blue'>Обратная связь</h3>
+  <%= form_for @feedback do |f|%>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= f.label :phone %>
+    <%= f.phone_field :phone %>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %><br>
+    <%= f.submit "Оставить отзыв", class: 'btn btn-primary'%>
+  <% end %>
+</div>
+</div>

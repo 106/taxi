@@ -8,6 +8,11 @@ ru:
       order:
         user_phone: "Телефон:"
         comment: "Комментарий:"
+        for_order: Для заказа
+      feedback:
+        phone: Номер телефона
+        comment: Отзыв
+        contact: 'Контактные данные'
       taxi:
         email: 'Email'
         password: 'Пароль'
@@ -31,8 +36,13 @@ ru:
     out_of_town: 'Поездка за город'
     minivan: 'Минивен'
     calculate: 'Рассчитать стоимость'
+    errors:
+      one_address: должен быть указан хотя бы один адрес 
   taxi:
     sign_in: Войти в панель оператора
+  feedback:
+    errors:
+      phone_or_email: не могут быть пустыми. Введите email или номер телефона
   date:
     abbr_day_names:
     - Вс
